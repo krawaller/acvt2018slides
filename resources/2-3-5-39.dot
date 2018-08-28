@@ -1,0 +1,15 @@
+digraph {
+  rankdir = TD;
+  bgcolor = transparent;
+
+  boss [label="GENERAL\nname: Carl\nintrepid"]
+  l1 [label="LIUTENANT\nname: Mike\nspineless"]
+  l2 [label="LIUTENANT\nname: Scott\nagoraphobic"]
+  g1 [label="GRUNT\nname: Steve\n"]
+  g2 [label="GRUNT\nname: Oscar\nmoronic"]
+  g3 [label="GRUNT\nname: Tommy\n"]
+  boss -> l1 -> g1
+  l1 -> g2
+  l2 -> g2 [color=transparent]
+  boss -> l2 -> g3
+}

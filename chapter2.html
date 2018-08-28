@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>HTML</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="icon" type="image/x-icon" href="mc2/images/favicon.ico">
+
+    <link rel="stylesheet" href="mc2/styles/reveal.css">
+    <link rel="stylesheet" href="mc2/styles/theme.css" id="theme">
+    <link rel="stylesheet" href="mc2/styles/code.css">
+    <!--STARTCOURSESPECIFICSTYLES--><link rel="stylesheet" href="styles/cssdemo.css">
+<link rel="stylesheet" href="styles/sectiontypes.css">
+<link rel="stylesheet" href="styles/style.css"><!--ENDCOURSESPECIFICSTYLES-->
+
+    
+  </head>
+
+  <body>
+    <div id="pos"></div>
+    <div class="reveal">
+      <div class="slides">
+        <section class="slide chaptertitle">
+          <div class="slidecontent">
+            <div class="chapternumber"> chapter 2 of 11 </div>
+            <h1>HTML</h1>
+            
+          </div>
+        </section>
+        
+        <!--STARTSECTIONINDEX--><section class="slide sectionlist">
+  <div class="slidecontent">
+    <h3>Sections in this chapter</h3>
+    <ol>
+    <li><a href="#/2">Describing&nbsp;a&nbsp;universe</a></li>
+<li><a href="#/3">Encoding&nbsp;data</a></li>
+<li><a href="#/4">Exercise&nbsp;&#8209;&nbsp;geneaology</a></li>
+<li><a href="#/5">XML</a></li>
+<li><a href="#/6">Exercise&nbsp;&#8209;&nbsp;Back&nbsp;to&nbsp;the&nbsp;past</a></li>
+<li><a href="#/7">HTML&nbsp;documents</a></li>
+<li><a href="#/8">HTML&nbsp;content</a></li>
+<li><a href="#/9">Exercise&nbsp;&#8209;&nbsp;Hello&nbsp;world!</a></li>
+<li><a href="#/10">Semantics</a></li>
+<li><a href="#/11">Two&nbsp;special&nbsp;elements</a></li>
+<li><a href="#/12">Exercise&nbsp;&#8209;&nbsp;Fighting&nbsp;Fantasy</a></li>
+    </ol>
+  </div>
+</section>
+<!--ENDSECTIONINDEX-->
+        <!--STARTCHAPTERCONTENT--><!--STARTSECTION1--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 1/11</div>
+      <h3>Describing a universe</h3>
+      <p>What is <span style="text-decoration: line-through;">the matrix</span> data?</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-1-1">
+<span class="pos">2-1-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p><strong>HTML</strong> is a flavour of <strong>XML</strong> which is a <strong>format</strong> for <strong>nested data</strong>. Thus we need to understand...</p>
+<p><img src="resources/2-1-1-138.svg" alt="dot"></p>
+<p>...so let&#39;s start with <strong>nested data</strong>!</p>
+</div></section><section class="slide list" data-pos="2-1-2">
+<span class="pos">2-1-2</span>
+<div class="slidecontent">
+<p><strong>Data</strong> is really just a <strong>description of something</strong>. We&#39;ll map this out in 4 steps:</p>
+<ul>
+<li><span>a</span>boolean attributes</li>
+<li><span>b</span>attributes with values</li>
+<li><span>c</span>types</li>
+<li><span>d</span>relations</li>
+</ul>
+</div></section><section class="slide num numA" data-pos="2-1-3">
+<span class="pos">2-1-3</span>
+<div class="slidecontent">
+<p>The simplest piece of information about something are <strong>flags</strong>, or <strong>booleans</strong>.</p>
+<p>These are attributes that either exist on a thing, or they don&#39;t.</p>
+</div></section><section class="slide" data-pos="2-1-4">
+<span class="pos">2-1-4</span>
+<div class="slidecontent"><p>When I describe my thing I <strong>list all flags</strong>:</p>
+<blockquote>
+<p>This thing is <code>unique</code>, <code>transparent</code> and <code>available</code></p>
+</blockquote>
+</div></section><section class="slide" data-pos="2-1-5">
+<span class="pos">2-1-5</span>
+<div class="slidecontent"><p>Since I listed <strong>all flags</strong> we know by omission which flags aren&#39;t applicable to this thing.</p>
+<p>Of course, for this to work, we need a list of <strong>all possible flags</strong> in this universe!</p>
+</div></section><section class="slide num numB" data-pos="2-1-6">
+<span class="pos">2-1-6</span>
+<div class="slidecontent">
+<p>Then there are <strong>attributes with values</strong>:</p>
+<blockquote>
+<p>The <code>age</code> is <code>38</code>, the <code>price</code> is <code>1200</code> and <code>color</code> is <code>red</code></p>
+</blockquote>
+<p>Same thing here; a list of <strong>all possible attributes</strong> is useful to know what isn&#39;t descibed.</p>
+</div></section><section class="slide num numC" data-pos="2-1-7">
+<span class="pos">2-1-7</span>
+<div class="slidecontent">
+<p>In many data universes it is common to <strong>divide all things</strong> into <strong>types</strong>. In essence this means that we</p>
+<ul>
+<li>select an <strong>attribute applicable to all things</strong></li>
+<li><strong>use the value to classify</strong> our things</li>
+</ul>
+</div></section><section class="slide" data-pos="2-1-8">
+<span class="pos">2-1-8</span>
+<div class="slidecontent"><p><strong>For example</strong>, we might classify people by <strong>zodiac signs</strong>.</p>
+<blockquote>
+<p>The type of this thing is <code>Aquarius</code></p>
+</blockquote>
+<p>But we could also use <strong>gender</strong>...</p>
+<blockquote>
+<p>The type of this thing is <code>Male</code></p>
+</blockquote>
+<p>...or a whole bunch of other possible attributes.</p>
+</div></section><section class="slide" data-pos="2-1-9">
+<span class="pos">2-1-9</span>
+<div class="slidecontent"><p>Again, the main idea is that the <strong>type</strong> is...</p>
+<ul>
+<li>an <strong>attribute</strong> that <strong>all things have</strong></li>
+<li>something that it is <strong>useful to divide the universe with</strong></li>
+</ul>
+</div></section><section class="slide num numD" data-pos="2-1-10">
+<span class="pos">2-1-10</span>
+<div class="slidecontent">
+<p>Finally, <strong>relationships</strong>! Things in our universe - or <strong>nodes</strong> as they&#39;re frequently called in this setting - are normally <strong>connected to one another</strong> through different means.</p>
+</div></section><section class="slide" data-pos="2-1-11">
+<span class="pos">2-1-11</span>
+<div class="slidecontent"><p>A relationship chart for a group of <strong>nodes</strong> might look something like this: </p>
+<p><img src="resources/2-1-11-82.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="2-1-12">
+<span class="pos">2-1-12</span>
+<div class="slidecontent"><p>However, we&#39;ll primarily deal with <strong>trees</strong>, where relationship have the following limitations:</p>
+<ul>
+<li>We only care about <strong>parenthood</strong></li>
+<li>Each object <strong>only has one parent</strong></li>
+<li><strong>No cyclical relations</strong> are allowed</li>
+</ul>
+</div></section><section class="slide" data-pos="2-1-13">
+<span class="pos">2-1-13</span>
+<div class="slidecontent"><p>Here&#39;s an <strong>example of a tree</strong>:</p>
+<p><img src="resources/2-1-13-36.svg" alt="dot"></p>
+<p>So when <strong>describing <code>B</code></strong> we could say:</p>
+<blockquote>
+<p>The parent is <code>A</code>, and children are <code>D</code> and <code>E</code></p>
+</blockquote>
+</div></section><section class="slide" data-pos="2-1-14">
+<span class="pos">2-1-14</span>
+<div class="slidecontent"><p>The top-level node is typically called the <strong>root</strong>, and nodes without children are called <strong>leaves</strong>.</p>
+<p>You know, like in a real tree.</p>
+</div></section><section class="slide" data-pos="2-1-15">
+<span class="pos">2-1-15</span>
+<div class="slidecontent"><p><img src="resources/images/tree-wizard.png" alt=""></p>
+</div></section><section class="slide" data-pos="2-1-16">
+<span class="pos">2-1-16</span>
+<div class="slidecontent"><p>It is very common in <strong>nested data</strong> like this to <strong>only describe children</strong>.</p>
+<p>Thus every node is the top of its own <strong>subtree</strong>!</p>
+</div></section>
+</section>
+<!--ENDSECTION1-->
+<!--STARTSECTION2--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 2/11</div>
+      <h3>Encoding data</h3>
+      
+    </div>
+  </section>
+  <section class="slide" data-pos="2-2-1">
+<span class="pos">2-2-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>With an understanding of what data is, we can now start discussing <strong>data formats</strong>.</p>
+<p><img src="resources/2-2-1-117.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="2-2-2">
+<span class="pos">2-2-2</span>
+<div class="slidecontent"><p>A data format is simply an <strong>idea about how to describe data</strong>!</p>
+<p>The description process is commonly called <strong>encoding</strong>:</p>
+<p><img src="resources/2-2-2-127.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="2-2-3">
+<span class="pos">2-2-3</span>
+<div class="slidecontent"><p>Interpreting a description to gain an understanding about the data is commonly called <strong>decoding</strong> or <strong>parsing</strong>:</p>
+<p><img src="resources/2-2-3-118.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="2-2-4">
+<span class="pos">2-2-4</span>
+<div class="slidecontent"><p>Together these processes form a cycle:</p>
+<p><img src="resources/2-2-4-42.svg" alt="dot"></p>
+</div></section><section class="slide list" data-pos="2-2-5">
+<span class="pos">2-2-5</span>
+<div class="slidecontent">
+<p><strong>Defining a format</strong> means <strong>deciding how to describe</strong>...</p>
+<ul>
+<li><span>a</span>boolean attributes</li>
+<li><span>b</span>attributes with values</li>
+<li><span>c</span>types</li>
+<li><span>d</span>children</li>
+</ul>
+<p>Let&#39;s try this!</p>
+</div></section><section class="slide num numA" data-pos="2-2-6">
+<span class="pos">2-2-6</span>
+<div class="slidecontent">
+<p>First, <strong>boolean attributes</strong>. I decide to just <strong>list them with commas inbetween</strong>:</p>
+<pre><code class="lang-text">unique,transparent,available
+</code></pre>
+</div></section><section class="slide question" data-pos="2-2-7">
+<span class="pos">2-2-7</span>
+<div class="slidecontent">
+<p>Imagine we&#39;re programming a parser to interpret this format.</p>
+<p>What <strong>characters</strong> are now <strong>legal in a flag</strong>?</p>
+</div></section><section class="slide answer" data-pos="2-2-8">
+<span class="pos">2-2-8</span>
+<div class="slidecontent">
+<p>Everything except <code>,</code> since that is the separator!</p>
+</div></section><section class="slide question" data-pos="2-2-9">
+<span class="pos">2-2-9</span>
+<div class="slidecontent">
+<p>But what if I <strong>really want a comma in my flag name</strong>?</p>
+</div></section><section class="slide answer" data-pos="2-2-10">
+<span class="pos">2-2-10</span>
+<div class="slidecontent">
+<p>There&#39;s an almost <strong>universally adopted solution</strong> to this:</p>
+<p>By <strong>preceeding a character with a backslash</strong> we agree that we <strong>take away it&#39;s special meaning</strong>!</p>
+</div></section><section class="slide" data-pos="2-2-11">
+<span class="pos">2-2-11</span>
+<div class="slidecontent"><p>Thus this...</p>
+<pre><code class="lang-text">foo,\,\,\,,bar
+</code></pre>
+<p>...has three flags:</p>
+<ul>
+<li><code>foo</code></li>
+<li><code>,,,</code></li>
+<li><code>bar</code></li>
+</ul>
+</div></section><section class="slide question" data-pos="2-2-12">
+<span class="pos">2-2-12</span>
+<div class="slidecontent">
+<p>What about <strong>allowing whitespace</strong> so that it is <strong>easier for a human to read</strong>?</p>
+<pre><code class="lang-text">unique, transparent, available
+</code></pre>
+</div></section><section class="slide answer" data-pos="2-2-13">
+<span class="pos">2-2-13</span>
+<div class="slidecontent">
+<p>We could, but then the <strong>format must deal with that</strong>! In other words, <strong>space becomes a &quot;magical character&quot;</strong> just like commas.</p>
+<p>The more of those we have, the more we have to explain.</p>
+</div></section><section class="slide num numB" data-pos="2-2-14">
+<span class="pos">2-2-14</span>
+<div class="slidecontent">
+<p>Next up is <strong>attributes with values</strong>!</p>
+<p>I&#39;m thinking we <strong>list them among the flags</strong>, but we <strong>separate name and value with colons</strong>.</p>
+<pre><code class="lang-text">unique,transparent,available,age:38,price:1400
+</code></pre>
+<p>Now we have <strong>two magical characters</strong>: commas and colons.</p>
+</div></section><section class="slide num numC" data-pos="2-2-15">
+<span class="pos">2-2-15</span>
+<div class="slidecontent">
+<p>Now, <strong>types</strong>. I&#39;m thinking we just <strong>put that at the beginning</strong>.</p>
+<p>Should we invent a <strong>new magic character</strong>? We don&#39;t need to, since &quot;beginning&quot; is unambiguous! On the other hand, a new character makes the type more clear.</p>
+</div></section><section class="slide" data-pos="2-2-16">
+<span class="pos">2-2-16</span>
+<div class="slidecontent"><p>I decided to <strong>use colons for types too</strong>:</p>
+<pre><code class="lang-text">aquarius:unique,transparent,available,age:38,price:1400
+</code></pre>
+<p>Somewhat confusing, but what the heck.</p>
+</div></section><section class="slide num numD" data-pos="2-2-17">
+<span class="pos">2-2-17</span>
+<div class="slidecontent">
+<p>Now for the final and hardest part - how do we describe <strong>parenthood</strong>?</p>
+</div></section><section class="slide" data-pos="2-2-18">
+<span class="pos">2-2-18</span>
+<div class="slidecontent"><p>Here&#39;s a decision we must make first - do we</p>
+<ul>
+<li><strong>list all nodes in a separate list</strong> with ID:s, and then use <strong>references</strong> when describing the children of a node</li>
+<li><strong>nest the data</strong> so that the <strong>child descriptions live inside the parent</strong>?</li>
+</ul>
+</div></section><section class="slide" data-pos="2-2-19">
+<span class="pos">2-2-19</span>
+<div class="slidecontent"><p>Having the <strong>children live inside the parent</strong> is <strong>much more common</strong>, since it allows for <strong>subtrees</strong>. So that&#39;s what I&#39;ll do!</p>
+<p>I decided to</p>
+<ul>
+<li><strong>put all children within parenthesis</strong> after the attributes</li>
+<li><strong>separate children via commas</strong></li>
+</ul>
+</div></section><section class="slide question" data-pos="2-2-20">
+<span class="pos">2-2-20</span>
+<div class="slidecontent">
+<p>Waaaaait... <strong>does that really work</strong>? Do we know if a comma separates children or attributes?</p>
+<p>And can we tell if we describe a mother with two children versus a grandmother and a mother and a child?</p>
+</div></section><section class="slide answer" data-pos="2-2-21">
+<span class="pos">2-2-21</span>
+<div class="slidecontent">
+<p>Yup! Mother of two</p>
+<pre><code class="lang-text">aquarius:unique(cancer:heavy,age:5(),lion:city:oslo())
+</code></pre>
+<p>versus grandmother:</p>
+<pre><code class="lang-text">aquarius:unique(cancer:heavy,age:5(lion:city:oslo()))
+</code></pre>
+</div></section><section class="slide" data-pos="2-2-22">
+<span class="pos">2-2-22</span>
+<div class="slidecontent"><p>It works since <strong>all nodes have parenthesis</strong> even if they have no children!</p>
+<p>If we allowed skipping empty parenthesis it wouldn&#39;t work, since a comma might be followed by a new attribute or a type of a child.</p>
+</div></section>
+</section>
+<!--ENDSECTION2-->
+<!--STARTSECTION3--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 3/11</div>
+      <h3>Exercise - geneaology</h3>
+      <p>Adam and Eve, sitting in a tree</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-3-1">
+<span class="pos">2-3-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Let&#39;s try!</p>
+</div></section><section class="slide list" data-pos="2-3-2">
+<span class="pos">2-3-2</span>
+<div class="slidecontent">
+<ul>
+<li><span>a</span>design a format</li>
+<li><span>b</span>make up some data</li>
+<li><span>c</span>encode the data</li>
+<li><span>d</span>pass it to someone</li>
+<li><span>e</span>get from someone</li>
+</ul>
+</div></section><section class="slide num numA" data-pos="2-3-3">
+<span class="pos">2-3-3</span>
+<div class="slidecontent">
+<p>Design a format! That means you have to <strong>make decisions</strong> for how to describe....</p>
+<ul>
+<li>type</li>
+<li>flags</li>
+<li>attributes with values</li>
+<li>children</li>
+</ul>
+</div></section><section class="slide" data-pos="2-3-4">
+<span class="pos">2-3-4</span>
+<div class="slidecontent"><p>Write these decisions down in a <strong>document</strong> that defines your format.</p>
+<p>Make sure that it is...</p>
+<ul>
+<li>easy to understand</li>
+<li>unambiguous</li>
+</ul>
+<p>...since someone else will use it!</p>
+</div></section><section class="slide num numB" data-pos="2-3-5">
+<span class="pos">2-3-5</span>
+<div class="slidecontent">
+<p>Now <strong>make up some data</strong>!</p>
+<p><img src="resources/2-3-5-39.svg" alt="dot"></p>
+</div></section><section class="slide num numC" data-pos="2-3-6">
+<span class="pos">2-3-6</span>
+<div class="slidecontent">
+<p>Take the made-up data and <strong>encode it</strong>, using the document you authored!</p>
+<p>In other words you&#39;re acting like a <strong>manual encoder</strong>.</p>
+<p><img src="resources/2-3-6-145.svg" alt="dot"></p>
+</div></section><section class="slide num numD" data-pos="2-3-7">
+<span class="pos">2-3-7</span>
+<div class="slidecontent">
+<p>Take the <strong>format document</strong> and <strong>encoded data</strong> and send it to someone. If you&#39;ve done your job, that person should be able to <strong>parse the data</strong>!</p>
+<p><img src="resources/2-3-7-161.svg" alt="dot"></p>
+</div></section><section class="slide num numE" data-pos="2-3-8">
+<span class="pos">2-3-8</span>
+<div class="slidecontent">
+<p>Likewise, make sure you <strong>receive a document and encoded data</strong> from someone else, to try your hand at parsing!</p>
+</div></section><section class="slide" data-pos="2-3-9">
+<span class="pos">2-3-9</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>Someone has <strong>decoded your data</strong></li>
+<li>You have <strong>decoded someone else&#39;s data</strong></li>
+</ul>
+</div></section><section class="slide challenge" data-pos="2-3-10">
+<span class="pos">2-3-10</span>
+<div class="slidecontent">
+<p>A <strong>stretch task</strong> if there is time:</p>
+<ul>
+<li>make someone give you<ul>
+<li><strong>data they have decoded</strong> but NOT the original encoded data!</li>
+<li>the <strong>format document they used</strong></li>
+</ul>
+</li>
+<li><strong>encode it again</strong></li>
+<li>now <strong>get the encoded data</strong> from the same person</li>
+<li>does it match your encoding?</li>
+</ul>
+</div></section><section class="slide" data-pos="2-3-11">
+<span class="pos">2-3-11</span>
+<div class="slidecontent"><p>In other words - does the data format <strong>survive the full cycle</strong>?</p>
+<p><img src="resources/2-3-11-69.svg" alt="dot"></p>
+<p>If not, send an <span style="text-decoration: linethrough;">angry</span> informative email to its creator explaining the problem!</p>
+</div></section>
+</section>
+<!--ENDSECTION3-->
+<!--STARTSECTION4--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 4/11</div>
+      <h3>XML</h3>
+      <p>not quite as cool as it used to be?</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-4-1">
+<span class="pos">2-4-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Understanding how <strong>XML</strong> (eXtensible Markup Language) has solved the exercise you just did!</p>
+<p><img src="resources/2-4-1-125.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="2-4-2">
+<span class="pos">2-4-2</span>
+<div class="slidecontent"><p>XML delimits nodes by an <strong>opening and closing tag</strong> which <strong>contains the type</strong>.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">shelf</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">shelf</span>&gt;</span>
+</code></pre>
+<p>The opening tag is <code>&lt;type&gt;</code>, the closing is <code>&lt;/type&gt;</code> - the same but with a forward slash before the type.</p>
+</div></section><section class="slide" data-pos="2-4-3">
+<span class="pos">2-4-3</span>
+<div class="slidecontent"><p>Now, <strong>flags</strong> and <strong>attributes</strong>! They...</p>
+<ul>
+<li>are put <strong>inside the opening tag</strong>.</li>
+<li>are <strong>separated with whitespace</strong></li>
+<li>uses an <strong>equal sign before the value</strong></li>
+<li>has the <strong>value within quotes</strong></li>
+</ul>
+</div></section><section class="slide" data-pos="2-4-4">
+<span class="pos">2-4-4</span>
+<div class="slidecontent"><p>So if we have a heavy oaken shelf, we get: </p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">shelf</span> <span class="hljs-attr">wood</span>=<span class="hljs-string">"oak"</span> <span class="hljs-attr">weight</span>=<span class="hljs-string">"85kg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">shelf</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="2-4-5">
+<span class="pos">2-4-5</span>
+<div class="slidecontent"><p>What about <strong>children</strong>? They are simply listed <strong>between the opening and closing tags</strong>!</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">shelf</span> <span class="hljs-attr">wood</span>=<span class="hljs-string">"oak"</span> <span class="hljs-attr">weight</span>=<span class="hljs-string">"85kg"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">animal</span> <span class="hljs-attr">race</span>=<span class="hljs-string">"Hieraatus Spilogaster"</span> <span class="hljs-attr">taxidermist</span>=<span class="hljs-string">"Bob"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">shelf</span>&gt;</span>
+</code></pre>
+<p><strong>Whitespace is allowed</strong> wherever, which lets us space out the information in a readable way.</p>
+</div></section><section class="slide" data-pos="2-4-6">
+<span class="pos">2-4-6</span>
+<div class="slidecontent"><p>For an element with no children, XML has an alternative shorthand with <strong>self-closing tags</strong>. So instead of this:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">animal</span> <span class="hljs-attr">race</span>=<span class="hljs-string">"Hieraatus Spilogaster"</span> <span class="hljs-attr">taxidermist</span>=<span class="hljs-string">"Bob"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">animal</span>&gt;</span>
+</code></pre>
+<p>we could have done this:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">animal</span> <span class="hljs-attr">race</span>=<span class="hljs-string">"Hieraatus Spilogaster"</span> <span class="hljs-attr">taxidermist</span>=<span class="hljs-string">"Bob"</span>/&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="2-4-7">
+<span class="pos">2-4-7</span>
+<div class="slidecontent"><p>XML also has a shorthand for <strong>text content</strong>. Instead of having to do something like this:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">famous-quote</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"Alea Jacta Est"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">famous-quote</span>&gt;</span>
+</code></pre>
+<p>...we are allowed to put <strong>text as a child</strong>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">famous-quote</span>&gt;</span>Alea Jacta Est<span class="hljs-tag">&lt;/<span class="hljs-name">famous-quote</span>&gt;</span>
+</code></pre>
+<p>This is commonly called a <strong>text node</strong>.</p>
+</div></section><section class="slide" data-pos="2-4-8">
+<span class="pos">2-4-8</span>
+<div class="slidecontent"><p>Although powerful this also gives rise to further <strong>ambiguity</strong>. For example, should we encode a book like this...</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">book</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Naiv Super"</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"Erlend Loe"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">book</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="2-4-9">
+<span class="pos">2-4-9</span>
+<div class="slidecontent"><p>...or like this?</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">book</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Naiv Super<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>Erlend Loe<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">book</span>&gt;</span>
+</code></pre>
+<p>Also, text nodes mean <strong>whitespace magic becomes more complex</strong>! Since the above...</p>
+</div></section><section class="slide" data-pos="2-4-10">
+<span class="pos">2-4-10</span>
+<div class="slidecontent"><p>...could actually be interpreted as this:</p>
+<p><img src="resources/2-4-10-45.svg" alt="dot"></p>
+<p>(although the interpreter can be made to skip those whitespace nodes)</p>
+</div></section><section class="slide" data-pos="2-4-11">
+<span class="pos">2-4-11</span>
+<div class="slidecontent"><p>This does however allow us to do stuff like this, which can be quite useful:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">truth</span>&gt;</span>I am <span class="hljs-tag">&lt;<span class="hljs-name">emphasis</span>&gt;</span>really<span class="hljs-tag">&lt;/<span class="hljs-name">emphasis</span>&gt;</span> good at this!<span class="hljs-tag">&lt;/<span class="hljs-name">truth</span>&gt;</span>
+</code></pre>
+<p><img src="resources/2-4-11-154.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="2-4-12">
+<span class="pos">2-4-12</span>
+<div class="slidecontent"><p>As a final note, learn the <strong>vocabulary</strong>:</p>
+<ul>
+<li>an <strong>element</strong> is an object / entity / node / thing / whatever you want to call it.</li>
+<li>an element is defined using an opening and a closing <strong>tag</strong> (or a self-closing tag).</li>
+</ul>
+<p>In essence: the <strong>element is the node</strong>, while the <strong>tags are the delimiters</strong> for the node.</p>
+</div></section>
+</section>
+<!--ENDSECTION4-->
+<!--STARTSECTION5--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 5/11</div>
+      <h3>Exercise - Back to the past</h3>
+      <p>First blood 2</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-5-1">
+<span class="pos">2-5-1</span>
+<div class="slidecontent"><p>You all saw this one coming - your mission, should you choose to accept it, is to <strong>redo the geneaology in XML</strong>!</p>
+<p>The translation might mean that you have to make choices, as noted earlier. Bonus points if you reason around these!</p>
+</div></section><section class="slide" data-pos="2-5-2">
+<span class="pos">2-5-2</span>
+<div class="slidecontent"><p>Before you submit your work you should <strong>validate your xml</strong>. A nice service for that can be found at <a href="https://validator.w3.org/#validate_by_input">https://validator.w3.org/#validate_by_input</a>.</p>
+</div></section><section class="slide" data-pos="2-5-3">
+<span class="pos">2-5-3</span>
+<div class="slidecontent"><p>Note that you have to put this line:</p>
+<pre><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span><span class="hljs-meta">?&gt;</span></span>
+</code></pre><p>...at the top of your xml, otherwise the validator will balk because <em>reasons</em>.</p>
+</div></section><section class="slide" data-pos="2-5-4">
+<span class="pos">2-5-4</span>
+<div class="slidecontent"><p>You can <strong>ignore warnings</strong> - as long as you see the green banner, all is well:</p>
+<p><img src="resources/images/validation.png" alt=""></p>
+</div></section><section class="slide" data-pos="2-5-5">
+<span class="pos">2-5-5</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>You have encoded the same data as before</li>
+<li>The validator agrees your encoding is correct</li>
+</ul>
+</div></section><section class="slide challenge" data-pos="2-5-6">
+<span class="pos">2-5-6</span>
+<div class="slidecontent">
+<p>If you have time, some discussion points:</p>
+<ul>
+<li>what magical characters does XML have?</li>
+<li>how does XML compare to your format?</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION5-->
+<!--STARTSECTION6--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 6/11</div>
+      <h3>HTML documents</h3>
+      <p>finally getting to the point</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-6-1">
+<span class="pos">2-6-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Now, finally - <strong>HTML</strong>!</p>
+<p><img src="resources/2-6-1-57.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="2-6-2">
+<span class="pos">2-6-2</span>
+<div class="slidecontent"><p>HTML, or <strong>HyperText Markup Language</strong> is a <strong>flavour of XML</strong> (sort of). It is used for <strong>encoding documents meant to be consumed on the web</strong>.</p>
+<p>Much like Photoshop expects a <code>.psd</code> file, your favourite <strong>web browser wants <code>.html</code></strong>.</p>
+</div></section><section class="slide" data-pos="2-6-3">
+<span class="pos">2-6-3</span>
+<div class="slidecontent"><p>Learning HTML therefore means learning about <strong>types</strong> and <strong>attributes</strong> that have <strong>special meaning to the browser</strong>!</p>
+</div></section><section class="slide" data-pos="2-6-4">
+<span class="pos">2-6-4</span>
+<div class="slidecontent"><p>Speaking of <strong>types</strong> - an <strong>HTML document</strong> is a tree starting with these three nodes:</p>
+<p><img src="resources/2-6-4-91.svg" alt="dot"></p>
+<p>The <strong>head contains metadata</strong> about the document, while <strong>body contains the content</strong>.</p>
+</div></section><section class="slide" data-pos="2-6-5">
+<span class="pos">2-6-5</span>
+<div class="slidecontent"><p>Translated to <strong>actual HTML</strong>, that becomes the following:</p>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre><p>There should only ever be <strong>one instance of html, head and body</strong> throughout the tree.</p>
+</div></section><section class="slide" data-pos="2-6-6">
+<span class="pos">2-6-6</span>
+<div class="slidecontent"><p>By adding an optional leading <code>&lt;!DOCTYPE html&gt;</code> thingie, we tell the browser that this is a modern <strong>HTML5</strong> document.</p>
+<pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre><p>We won&#39;t go into (too) much detail, but suffice to say that <strong>you should always include it</strong>.</p>
+</div></section><section class="slide" data-pos="2-6-7">
+<span class="pos">2-6-7</span>
+<div class="slidecontent"><p>So, <strong>what metadata</strong> goes into the <code>&lt;head&gt;</code> tag?</p>
+<p>A heck of a lot of stuff, but we&#39;ll now cover <strong>two common examples</strong>.</p>
+</div></section><section class="slide" data-pos="2-6-8">
+<span class="pos">2-6-8</span>
+<div class="slidecontent"><p>First off, we set the <strong>document title</strong> as a text node in a <code>&lt;title&gt;</code> tag:</p>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My AWESOME site<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+</code></pre><p>The browser will then bubble that title up in different ways when your page is displayed.</p>
+</div></section><section class="slide" data-pos="2-6-9">
+<span class="pos">2-6-9</span>
+<div class="slidecontent"><p>We can also set the <strong>character set</strong> as a <code>charset</code> attribute on a <code>&lt;meta&gt;</code> tag:</p>
+<pre><code>&lt;meta <span class="hljs-attribute">charset</span>=<span class="hljs-string">"utf8"</span>&gt;
+</code></pre><p>This (hopefully) prepares the browser to show <strong>Unicode characters</strong>. Without this, for example Swedish characters like <code>å</code>, <code>ä</code> and <code>ö</code> might be displayed wrongly.</p>
+</div></section><section class="slide" data-pos="2-6-10">
+<span class="pos">2-6-10</span>
+<div class="slidecontent"><p>Although that&#39;s not the entire truth - it also matters <strong>how the file is saved</strong>.</p>
+<p>In short: <strong>encoding sucks</strong>.</p>
+</div></section><section class="slide question" data-pos="2-6-11">
+<span class="pos">2-6-11</span>
+<div class="slidecontent"><p><strong>Question</strong>: Did you notice something weird on the slide with the meta element code?</p>
+</div></section><section class="slide answer" data-pos="2-6-12">
+<span class="pos">2-6-12</span>
+<div class="slidecontent"><p><strong>Answer</strong>: The <code>&lt;meta&gt;</code> element wasn&#39;t closed!</p>
+<pre><code>&lt;meta <span class="hljs-attribute">charset</span>=<span class="hljs-string">"utf8"</span>&gt;
+</code></pre><p>What&#39;s up with that?!</p>
+</div></section><section class="slide" data-pos="2-6-13">
+<span class="pos">2-6-13</span>
+<div class="slidecontent"><p>While XML is very strict, HTML takes a looser approach; <strong>elements which never have children do not have to be closed</strong>. OCD:ers beware!</p>
+<p>(to the point: <a href="http://xkcd.com/859/">http://xkcd.com/859/</a></p>
+</div></section><section class="slide" data-pos="2-6-14">
+<span class="pos">2-6-14</span>
+<div class="slidecontent"><p>There was a <strong>stricter flavour called XHTML</strong> which enforced well-formed XML, but that never took off.</p>
+</div></section>
+</section>
+<!--ENDSECTION6-->
+<!--STARTSECTION7--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 7/11</div>
+      <h3>HTML content</h3>
+      <p>let&#39;s talk body parts</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-7-1">
+<span class="pos">2-7-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>We just learned about the <strong>structure of a document</strong>.</p>
+<p>Time to start talking about <strong>how to represent content</strong>!</p>
+</div></section><section class="slide" data-pos="2-7-2">
+<span class="pos">2-7-2</span>
+<div class="slidecontent"><p>As we said before the <code>&lt;body&gt;</code> element contains the actual <strong>contents</strong> of the document, that the browser will show on screen.</p>
+<p>So, what does that look like?</p>
+</div></section><section class="slide" data-pos="2-7-3">
+<span class="pos">2-7-3</span>
+<div class="slidecontent"><p>Basically, the browser will only display the <strong>leaf text nodes</strong>.</p>
+<p>So let&#39;s say we feed it this <strong>nonsense</strong>:</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>BAR BAZ! <span class="hljs-tag">&lt;<span class="hljs-name">bin</span> <span class="hljs-attr">gnu</span>=<span class="hljs-string">"wee"</span>&gt;</span>boo<span class="hljs-tag">&lt;/<span class="hljs-name">bin</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">laj</span> <span class="hljs-attr">boo</span>=<span class="hljs-string">"foo"</span>&gt;</span>gnork.<span class="hljs-tag">&lt;/<span class="hljs-name">laj</span>&gt;</span>
+       Amen.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="2-7-4">
+<span class="pos">2-7-4</span>
+<div class="slidecontent"><p>...then the browser would display this:</p>
+<p><img src="resources/images/nonsense.png" alt=""></p>
+</div></section><section class="slide" data-pos="2-7-5">
+<span class="pos">2-7-5</span>
+<div class="slidecontent"><p>This means we can deduce that...</p>
+<ul>
+<li>the <strong>element types and attributes are simply ignored</strong>,</li>
+<li>as are the <strong>linebreaks</strong>.</li>
+<li>Sequences of <strong>spaces are collapsed</strong> into a single space.</li>
+</ul>
+</div></section><section class="slide" data-pos="2-7-6">
+<span class="pos">2-7-6</span>
+<div class="slidecontent"><p>But of course, there are <strong>elements with special meaning</strong> to the browser. These fall into <strong>two categories</strong>:</p>
+<ul>
+<li><strong>Block level</strong> elements that take up the full width of the document.</li>
+<li><strong>Inline</strong> elements that flow with the text. This is the default, as we saw with our nonsense elements.</li>
+</ul>
+</div></section><section class="slide" data-pos="2-7-7">
+<span class="pos">2-7-7</span>
+<div class="slidecontent"><p>The perhaps <strong>most common elements</strong> are...</p>
+<ul>
+<li>the <strong><code>&lt;div&gt;</code></strong>, short for divider, which is a generic block level element.</li>
+<li>the <strong><code>&lt;span&gt;</code></strong>, which is a generic inline element.</li>
+</ul>
+</div></section><section class="slide question" data-pos="2-7-8">
+<span class="pos">2-7-8</span>
+<div class="slidecontent"><p><strong>Quiz</strong>: Knowing what you just learned, what would this look like?</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Thorin Fili <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">Kili</span>=<span class="hljs-string">"Balin"</span>&gt;</span>Dwalin<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">Oin</span>=<span class="hljs-string">"Gloin"</span>&gt;</span>Dori <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Nori<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> Ori<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+       Bifur
+       <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Bombur<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide answer" data-pos="2-7-9">
+<span class="pos">2-7-9</span>
+<div class="slidecontent"><p><strong>Answer</strong>: Well, like this of course!</p>
+<p><img src="resources/images/dwarves.png" alt=""></p>
+</div></section><section class="slide" data-pos="2-7-10">
+<span class="pos">2-7-10</span>
+<div class="slidecontent"><p>On the subject of generic elements - there are also some <strong>generic attributes</strong> that we can set on all elements. MDN has a full list here:</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes</a></p>
+<p>We&#39;ll take a look at a few of them now:</p>
+</div></section><section class="slide" data-pos="2-7-11">
+<span class="pos">2-7-11</span>
+<div class="slidecontent"><p>The <strong><code>id</code> attribute</strong> allows us to give a unique name to an element that for some reason is special:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-wrapper"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>The id allows us to <strong>easily target the element</strong> from CSS or JavaScript.</p>
+</div></section><section class="slide" data-pos="2-7-12">
+<span class="pos">2-7-12</span>
+<div class="slidecontent"><p>The <strong><code>class</code> attribute</strong> is a bit special: in that string of text you can list a number of &quot;classes&quot; separated by spaces. Many elements can share the same class(es), allowing us to <strong>group elements together</strong> in themed categories.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wrapper article"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>These <strong>groups can then be targeted</strong> in CSS or JavaScript.</p>
+</div></section><section class="slide" data-pos="2-7-13">
+<span class="pos">2-7-13</span>
+<div class="slidecontent"><p>And just to show an example that doesn&#39;t have to do with targeting - the <strong><code>lang</code> attribute</strong>...</p>
+<pre><code>&lt;<span class="hljs-keyword">div</span> lang=<span class="hljs-string">"en"</span>&gt;...&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre><p>...allows the browser to <strong>provide spell checking and dictionary lookup</strong> for the correct language.</p>
+</div></section><section class="slide" data-pos="2-7-14">
+<span class="pos">2-7-14</span>
+<div class="slidecontent"><p>Finally - if for whatever reason you want to insert a <strong>comment</strong> into HTML, or temporarily exclude some elements from the flow, just wrap it within <code>&lt;!--</code> and <code>--&gt;</code>:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>a paragraph of text<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- &lt;div&gt;a paragraph which has been commented out&lt;/div&gt;
+&lt;div&gt;this paragraph too is outcommented&lt;/div&gt;--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>but this one is still visible!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="2-7-15">
+<span class="pos">2-7-15</span>
+<div class="slidecontent"><p>Beware that these <strong>comments still shows up in the source code</strong>, so no cursing!</p>
+<p><img src="resources/images/comments.png" alt=""></p>
+</div></section><section class="slide" data-pos="2-7-16">
+<span class="pos">2-7-16</span>
+<div class="slidecontent"><p>A final note; dividing all elements into block or non-block is a bit too simple.</p>
+<p>MDN has a more detailed <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories">content category</a> explanation that you can check out!</p>
+</div></section>
+</section>
+<!--ENDSECTION7-->
+<!--STARTSECTION8--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 8/11</div>
+      <h3>Exercise - Hello world!</h3>
+      <p>Let your presence be known</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-8-1">
+<span class="pos">2-8-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Setting up a simple HTML workflow.</p>
+</div></section><section class="slide" data-pos="2-8-2">
+<span class="pos">2-8-2</span>
+<div class="slidecontent"><p>Time for a quick <strong>hello world</strong> exercise!</p>
+<p><img src="resources/images/helloworld.jpg" alt=""></p>
+</div></section><section class="slide list" data-pos="2-8-3">
+<span class="pos">2-8-3</span>
+<div class="slidecontent">
+<p>Here&#39;s our objectives:</p>
+<ul>
+<li><span>a</span>create a document</li>
+<li><span>b</span>fill in some content</li>
+<li><span>c</span>spin up a web server</li>
+<li><span>d</span>view the document in the browser</li>
+</ul>
+</div></section><section class="slide num numA" data-pos="2-8-4">
+<span class="pos">2-8-4</span>
+<div class="slidecontent">
+<p>In your main projects folder, create a subfolder somewhere called <code>helloworld</code>. </p>
+<p>In that folder, <strong>create a new file</strong> and save it as <code>index.html</code>.</p>
+<p>Inside the file, type this...</p>
+<pre><code class="lang-text">html:5
+</code></pre>
+<p>...and press Tab.</p>
+</div></section><section class="slide" data-pos="2-8-5">
+<span class="pos">2-8-5</span>
+<div class="slidecontent"><p>It will magically <strong>expand</strong> to this!</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ie=edge"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>That was <a href="https://emmet.io/">Emmet</a> at work, a neat shortcut tool which is built in to Visual Studio Code.</p>
+</div></section><section class="slide num numB" data-pos="2-8-6">
+<span class="pos">2-8-6</span>
+<div class="slidecontent">
+<p>Also <strong>add some content</strong> to the body.</p>
+<p>It can contain whatever you want, however to spice things up, it <strong>must contain a list</strong>.</p>
+<p>See the syntax here: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul</a></p>
+</div></section><section class="slide num numC" data-pos="2-8-7">
+<span class="pos">2-8-7</span>
+<div class="slidecontent">
+<p>Time to <strong>set up a web server</strong>!</p>
+<p>You could view the file in the browser by double-clicking it in a file explorer. However, then we&#39;d use the <code>file://</code> protocol, which doesn&#39;t behave exactly as a normal web document.</p>
+<p>(for our simple document it wouldn&#39;t make a difference)</p>
+</div></section><section class="slide" data-pos="2-8-8">
+<span class="pos">2-8-8</span>
+<div class="slidecontent"><p>Open a terminal, and <strong>navigate to your main projects folder</strong>. When there, type...</p>
+<pre><code class="lang-text">python -m http.server
+</code></pre>
+<p>...if you have Python version 3, otherwise:</p>
+<pre><code class="lang-text">python -m SimpleHTTPServer
+</code></pre>
+<p>Minimize the terminal window - it&#39;ll chug along in the background.</p>
+</div></section><section class="slide" data-pos="2-8-9">
+<span class="pos">2-8-9</span>
+<div class="slidecontent"><p>Now <strong>open <code>http://localhost:8000</code> in your browser</strong> - you&#39;ll see your entire projects folder!</p>
+<p>In other words, what we just did is a super-simple way of <strong>publishing all projects on a server</strong> at the same time!</p>
+</div></section><section class="slide" data-pos="2-8-10">
+<span class="pos">2-8-10</span>
+<div class="slidecontent"><p>Finally <strong>click your way to your document</strong> and make sure you can see it!</p>
+<p>Try to rename the file to <code>something.html</code> and visit it again. How does that work differently?</p>
+</div></section><section class="slide" data-pos="2-8-11">
+<span class="pos">2-8-11</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>You visit your document over <code>localhost</code> in your browser</li>
+<li>You can explain what is special about the <code>index.html</code> name</li>
+</ul>
+</div></section><section class="slide challenge" data-pos="2-8-12">
+<span class="pos">2-8-12</span>
+<div class="slidecontent">
+<p>Take a look at <a href="https://code.visualstudio.com/docs/editor/emmet">https://code.visualstudio.com/docs/editor/emmet</a> and learn more about the neat Emmet shortcuts!</p>
+</div></section>
+</section>
+<!--ENDSECTION8-->
+<!--STARTSECTION9--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 9/11</div>
+      <h3>Semantics</h3>
+      <p>say what you mean</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-9-1">
+<span class="pos">2-9-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>The new web is said to be <strong>semantic</strong>. Time to learn what that means!</p>
+</div></section><section class="slide" data-pos="2-9-2">
+<span class="pos">2-9-2</span>
+<div class="slidecontent"><p>You just met <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> which are generic elements. But, most elements you use will be <strong>semantic</strong>.</p>
+<p>And this is important - the primary purpose of HTML is to <strong>explain to the browser what the content is</strong>, so that the browser can make informed decisions on how to display it.</p>
+</div></section><section class="slide" data-pos="2-9-3">
+<span class="pos">2-9-3</span>
+<div class="slidecontent"><p>Here are some <strong>common elements</strong> useful for <strong>marking up text</strong>:</p>
+<ul>
+<li>A <strong><code>&lt;p&gt;</code></strong> element represents a <strong>paragraph</strong> of text. It will be displayed as a block with a bottom margin.</li>
+<li>The <strong><code>&lt;h1&gt; - &lt;h6&gt;</code></strong> elements are <strong>headlines</strong>. 1 is the most important. They are blocks, with a bottom margin and a bigger and bolder look the lower the number.</li>
+</ul>
+</div></section><section class="slide" data-pos="2-9-4">
+<span class="pos">2-9-4</span>
+<div class="slidecontent"><p>Some more;</p>
+<ul>
+<li>A <strong><code>&lt;strong&gt;</code></strong> element is used for an inline section of text that you want to <strong>highlight</strong>. Typically displayed in bold.</li>
+<li>Similarly there is an <strong><code>&lt;em&gt;</code></strong> element for <strong>emphasis</strong>, typically displayed in italics.</li>
+</ul>
+</div></section><section class="slide" data-pos="2-9-5">
+<span class="pos">2-9-5</span>
+<div class="slidecontent"><p>So feeding the browser this:</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Monday 24/3<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ashley was so <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>annoying<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> today, OMG!!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>When I badmouth someone, I do it to their <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>FACE<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="2-9-6">
+<span class="pos">2-9-6</span>
+<div class="slidecontent"><p>...we get this:</p>
+<p><img src="resources/images/textstyle.png" alt=""></p>
+</div></section><section class="slide" data-pos="2-9-7">
+<span class="pos">2-9-7</span>
+<div class="slidecontent"><p>There are <strong>rules on where in the structure an element can appear</strong>, which all depend on their semantic meaning. </p>
+<p>For example, it makes no sense to nest a paragraph inside another paragraph, so that is forbidden.</p>
+</div></section><section class="slide" data-pos="2-9-8">
+<span class="pos">2-9-8</span>
+<div class="slidecontent"><p>In earlier HTML, many elements dealt with <strong>appearance</strong>. For example;</p>
+<ul>
+<li>there was a <code>&lt;b&gt;</code> element (short for bold)</li>
+<li>and an <code>&lt;i&gt;</code> element (short for italics)</li>
+</ul>
+</div></section><section class="slide" data-pos="2-9-9">
+<span class="pos">2-9-9</span>
+<div class="slidecontent"><p>Now they are <s>deprecated</s> lame, and you&#39;re supposed to use the semantic versions:</p>
+<p><img src="resources/2-9-9-90.svg" alt="dot"></p>
+<p>This is typical for HTML as a whole.</p>
+</div></section><section class="slide" data-pos="2-9-10">
+<span class="pos">2-9-10</span>
+<div class="slidecontent"><p>So, what <strong>other elements</strong> we can use? </p>
+<p>Too many to mention, but check the full reference at MDN:</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a></p>
+</div></section><section class="slide" data-pos="2-9-11">
+<span class="pos">2-9-11</span>
+<div class="slidecontent"><p>The fact that HTML content is semantic is also the reason why we haven&#39;t mentioned <strong>layout</strong> or <strong>style</strong> yet.</p>
+<p>Those things should <strong>only live in CSS-land</strong>. HTML is content, CSS is style and layout, and never the two shall meet, lest sadness and pandemonium ensues.</p>
+</div></section>
+</section>
+<!--ENDSECTION9-->
+<!--STARTSECTION10--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 10/11</div>
+      <h3>Two special elements</h3>
+      <p>Tweedle-dum, tweedle-dee</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-10-1">
+<span class="pos">2-10-1</span>
+<div class="slidecontent"><p>In this section we&#39;ll take a quick look at <strong>two important elements</strong>. First out is the <strong><code>&lt;img&gt;</code></strong> element, which lets us insert images into our documents:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"resources/images/6074.png"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"sooo pretty"</span>&gt;</span>
+</code></pre>
+<p><img src="resources/images/6074.png" title="sooo pretty"></p>
+</div></section><section class="slide" data-pos="2-10-2">
+<span class="pos">2-10-2</span>
+<div class="slidecontent"><p>We control the image mainly through two attributes:</p>
+<ul>
+<li><code>src</code> which is an <strong>address to the image file</strong>. It can be either<ul>
+<li><strong>relative</strong>, pointing to a resource on the same server, or</li>
+<li><strong>absolute</strong>, pointing anywhere</li>
+</ul>
+</li>
+<li><code>title</code>, which will be displayed as a tooltip in most browsers</li>
+</ul>
+</div></section><section class="slide" data-pos="2-10-3">
+<span class="pos">2-10-3</span>
+<div class="slidecontent"><p>Note that as <strong>an image will never have a child</strong>, just like the meta element, we <strong>don&#39;t need to close it</strong>.</p>
+</div></section><section class="slide" data-pos="2-10-4">
+<span class="pos">2-10-4</span>
+<div class="slidecontent"><p>When you need all <strong>details about a specific element</strong> such as the <code>img</code> element, MDN again has you covered:</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img</a></p>
+</div></section><section class="slide question" data-pos="2-10-5">
+<span class="pos">2-10-5</span>
+<div class="slidecontent"><p><strong>Quiz</strong>: Now for the second important element, which is arguably the <strong>most important of all</strong>. Can you think of which it is?</p>
+</div></section><section class="slide answer" data-pos="2-10-6">
+<span class="pos">2-10-6</span>
+<div class="slidecontent"><p><strong>Answer</strong>: The <em>anchor</em>, or <code>&lt;a&gt;</code> element as we know it! Without that, there would be no inter<strong>net</strong>.</p>
+</div></section><section class="slide" data-pos="2-10-7">
+<span class="pos">2-10-7</span>
+<div class="slidecontent"><p>The anchor has a <strong><code>href</code> attribute</strong> which control what page it leads to. </p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://bit.ly/youcannothandlethetruth"</span>&gt;</span>the truth<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<p>Just like image sources it can be <strong>relative or absolute</strong>.</p>
+</div></section><section class="slide" data-pos="2-10-8">
+<span class="pos">2-10-8</span>
+<div class="slidecontent"><p>Here is MDN:s full spec for the anchor element:</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a</a></p>
+</div></section><section class="slide question" data-pos="2-10-9">
+<span class="pos">2-10-9</span>
+<div class="slidecontent">
+<p>The image tooltip is controlled by a title attribute, but for the link text we used the element children. Why didn&#39;t they go for something like this...</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.boardgamegeek.com/"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"best site ever"</span>/&gt;</span>
+</code></pre>
+<p>...instead of the current syntax which requires a closing tag?</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.boardgamegeek.com/"</span>&gt;</span>best site ever<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide answer" data-pos="2-10-10">
+<span class="pos">2-10-10</span>
+<div class="slidecontent">
+<p>We might want to make images or big chunks of text or html into a link, but inside an attribute we can only enter text!</p>
+<p>But be careful looking for meaning in syntax details; most of it has just kind of happened.</p>
+</div></section><section class="slide" data-pos="2-10-11">
+<span class="pos">2-10-11</span>
+<div class="slidecontent"><p>A final short note; before the anchor, all elements we saw just meant</p>
+<ul>
+<li><strong>semantic meaning</strong> and some</li>
+<li><strong>default styling</strong>, most importantly whether they are</li>
+<li><strong>block or inline</strong>.</li>
+</ul>
+<p>But the anchor is the first example of an element that has <strong>behaviour</strong>.</p>
+</div></section><section class="slide" data-pos="2-10-12">
+<span class="pos">2-10-12</span>
+<div class="slidecontent"><p>There are others, but they work mostly in conjunction with JavaScript, so we leave them be for now.</p>
+</div></section>
+</section>
+<!--ENDSECTION10-->
+<!--STARTSECTION11--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 11/11</div>
+      <h3>Exercise - Fighting Fantasy</h3>
+      <p>left or right, block or strike?</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="2-11-1">
+<span class="pos">2-11-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Time to test what we&#39;ve learned by making a (slightly) <strong>more complex page</strong>!</p>
+</div></section><section class="slide" data-pos="2-11-2">
+<span class="pos">2-11-2</span>
+<div class="slidecontent"><div style="float:right;margin-left:2em;">
+<img src="resources/images/ff.jpg" alt="">
+</div>
+
+<p>Apologies, but yes - now you get to <strong>make a website</strong>.</p>
+<p>Not only that, you are going to make a classic <strong>gamebook</strong> adventure! Anyone recognizes this?</p>
+</div></section><section class="slide" data-pos="2-11-3">
+<span class="pos">2-11-3</span>
+<div class="slidecontent"><p>They work something like this:</p>
+<blockquote>
+<p>A dark hallway extends into the unknown. You can just make out the outline of a door to your left.</p>
+<ul>
+<li>to try the door, go to page 43</li>
+<li>to fumble down the hallway, go to page 231</li>
+</ul>
+</blockquote>
+</div></section><section class="slide" data-pos="2-11-4">
+<span class="pos">2-11-4</span>
+<div class="slidecontent"><p>We are now going to <strong>emulate the same thing</strong> but using a <strong>website with links</strong> instead of a <strong>book with page-turning instructions</strong>.</p>
+</div></section><section class="slide" data-pos="2-11-5">
+<span class="pos">2-11-5</span>
+<div class="slidecontent"><div style="float:right;margin-left:2em;">
+<img src="resources/images/files.png" alt="">
+</div>
+
+<p>Create a <strong>folder for your game</strong> inside your JS repo. It should contain an <strong>image folder</strong> and <strong>a <code>.html</code> file per page</strong>. The first page should be called <code>index.html</code>.</p>
+<p>Just create <strong>a few pages</strong>, we&#39;re just testing the waters here. Don&#39;t go overboard!</p>
+</div></section><section class="slide" data-pos="2-11-6">
+<span class="pos">2-11-6</span>
+<div class="slidecontent"><p>To start off, create a <strong>basic html content structure</strong> for your pages. It should...</p>
+<ul>
+<li>have a <strong>header section</strong> with the name of the game</li>
+<li>a <strong>main section</strong> where the text and image of the current page is visible</li>
+<li>a <strong>navigation section</strong>, perhaps a list, with the current possible options</li>
+</ul>
+</div></section><section class="slide" data-pos="2-11-7">
+<span class="pos">2-11-7</span>
+<div class="slidecontent"><p>A good tip is to check out the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">MDN element reference</a>, particularly the <strong>Content sectioning</strong> part.</p>
+</div></section><section class="slide" data-pos="2-11-8">
+<span class="pos">2-11-8</span>
+<div class="slidecontent"><p>As with all work from hereonafter you should <strong>add, commit and push</strong> your work with Git.</p>
+<p><strong>BUT!</strong> To spice things up, we&#39;re going to work in a <strong>new branch</strong>!</p>
+</div></section><section class="slide" data-pos="2-11-9">
+<span class="pos">2-11-9</span>
+<div class="slidecontent"><p>We&#39;ll <strong>create a new branch</strong> named <code>gh-pages</code> and switch to it, by running this command: </p>
+<pre><code>git checkout -<span class="hljs-selector-tag">b</span> gh-pages
+</code></pre></div></section><section class="slide" data-pos="2-11-10">
+<span class="pos">2-11-10</span>
+<div class="slidecontent"><p>Everything else will still work the same, except that <strong>when we push</strong>, you must type:</p>
+<pre><code>git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> gh-pages
+</code></pre></div></section><section class="slide question" data-pos="2-11-11">
+<span class="pos">2-11-11</span>
+<div class="slidecontent">
+<p>...so, why this particular branch name?</p>
+</div></section><section class="slide answer" data-pos="2-11-12">
+<span class="pos">2-11-12</span>
+<div class="slidecontent">
+<p>This branch name has a magical meaning for Github, namely that it&#39;ll be <strong>automatically published</strong> to a web server.</p>
+</div></section><section class="slide" data-pos="2-11-13">
+<span class="pos">2-11-13</span>
+<div class="slidecontent"><p>If our github repo has the following URL...</p>
+<pre><code class="lang-markdown">http://github.com/myusername/myreponame
+</code></pre>
+</div></section><section class="slide" data-pos="2-11-14">
+<span class="pos">2-11-14</span>
+<div class="slidecontent"><p>...then the content in a gh-pages branch is published at</p>
+<pre><code class="lang-markdown">http://myusername.github.io/myreponame
+</code></pre>
+<p>In other words, we&#39;re using Github as a collaboration tool <strong>and a publishing platform</strong>!</p>
+</div></section><section class="slide" data-pos="2-11-15">
+<span class="pos">2-11-15</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>You have a working adventure</li>
+<li>The adventure is published online via Github pages</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION11--><!--ENDCHAPTERCONTENT-->
+        
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var basehref = window.location.href.replace(/chapter\d.*?$/,'')
+
+      document.addEventListener("keydown",function(e){
+        var code = e.which || e.keyCode;
+        if (code===13){
+          window.location.href = basehref+"index.html?from="+(2-1);
+        } else if (code >= 49 && code <= 11+48) {
+          window.location.hash = "#/" + (code-48+1+0);
+        }
+        if (2 < 11) {
+          if (code===99){ // the letter C for next Chapter
+            window.location.href = basehref+"chapter"+(2+1)+".html"
+          }
+        }
+      });
+    </script>
+    <script src="mc2/scripts/head.js" type="text/javascript"></script>
+    <script src="mc2/scripts/reveal.js" type="text/javascript"></script>
+    <script src="mc2/scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    showNotes: false,
+    transition: 'slide',
+    dependencies: [
+      { src: 'mc2/scripts/plugin/notes/notes.js', async: true }
+    ]
+  })
+
+    window.onload = function(){
+
+      var links = document.querySelectorAll("a.link");
+      for(var i=0;i<links.length;i++){
+        var link = links[i];
+        link.innerHTML = link.innerHTML.replace(/ /g,'&nbsp;')
+      }
+      var posElem = document.getElementById('pos')
+      function updateReference(){
+        setTimeout(function(){
+          var currentpos = document.querySelector('section.present[data-pos]')
+          if (currentpos){
+            posElem.innerHTML = currentpos.getAttribute('data-pos')
+          } else {
+            posElem.innerHTML = ''
+          }
+          if (document.querySelector('.present.chaptertitle')){
+            document.body.classList.add('atchaptertitle');
+          } else {
+            document.body.classList.remove('atchaptertitle');
+          }
+        },10)
+      }
+
+      window.addEventListener("hashchange",updateReference);
+
+      updateReference();
+    };
+
+    </script>
+    <!--STARTCOURSESPECIFICSCRIPTS--><script type="text/javascript" src="scripts/cssdemo.js"></script>
+<script type="text/javascript" src="scripts/scoped_polyfill.js"></script><!--ENDCOURSESPECIFICSCRIPTS-->
+  </body>
+</html>

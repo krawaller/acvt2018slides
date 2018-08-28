@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Angular, part I</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="icon" type="image/x-icon" href="mc2/images/favicon.ico">
+
+    <link rel="stylesheet" href="mc2/styles/reveal.css">
+    <link rel="stylesheet" href="mc2/styles/theme.css" id="theme">
+    <link rel="stylesheet" href="mc2/styles/code.css">
+    <!--STARTCOURSESPECIFICSTYLES--><link rel="stylesheet" href="styles/cssdemo.css">
+<link rel="stylesheet" href="styles/sectiontypes.css">
+<link rel="stylesheet" href="styles/style.css"><!--ENDCOURSESPECIFICSTYLES-->
+
+    
+  </head>
+
+  <body>
+    <div id="pos"></div>
+    <div class="reveal">
+      <div class="slides">
+        <section class="slide chaptertitle">
+          <div class="slidecontent">
+            <div class="chapternumber"> chapter 9 of 11 </div>
+            <h1>Angular, part I</h1>
+            <span>The need for which is... acute</span>
+          </div>
+        </section>
+        
+        <!--STARTSECTIONINDEX--><section class="slide sectionlist">
+  <div class="slidecontent">
+    <h3>Sections in this chapter</h3>
+    <ol>
+    <li><a href="#/3">Deep&nbsp;end&nbsp;&#8209;&nbsp;exercise!</a></li>
+<li><a href="#/4">Models&nbsp;and&nbsp;views</a></li>
+<li><a href="#/5">Exercise</a></li>
+<li><a href="#/6">Conditional&nbsp;rendering</a></li>
+<li><a href="#/7">Exercise</a></li>
+<li><a href="#/8">Repeated&nbsp;rendering</a></li>
+<li><a href="#/9">Exercise</a></li>
+<li><a href="#/10">Styles</a></li>
+<li><a href="#/11">Exercise</a></li>
+<li><a href="#/12">Behavior</a></li>
+<li><a href="#/13">Exercise</a></li>
+<li><a href="#/14">React</a></li>
+    </ol>
+  </div>
+</section>
+<!--ENDSECTIONINDEX-->
+        <!--STARTCHAPTERCONTENT--><!--STARTSECTION1--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 1/12</div>
+      <h3>Deep end - exercise!</h3>
+      <p>Whoa!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-1-1">
+<span class="pos">9-1-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Exercise time.</p>
+<p>Wait, really? Yes!</p>
+</div></section><section class="slide" data-pos="9-1-2">
+<span class="pos">9-1-2</span>
+<div class="slidecontent"><p>Step 1: Install Angular.</p>
+<pre><code class="lang-sh">$ npm i -g @angular/cli
+</code></pre>
+<p>You may need to do this as Administrator. The tool installed is called <code>ng</code>.</p>
+</div></section><section class="slide" data-pos="9-1-3">
+<span class="pos">9-1-3</span>
+<div class="slidecontent"><p>Step 2: Create your project</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> Documents
+$ ng new my-first-project
+</code></pre>
+</div></section><section class="slide" data-pos="9-1-4">
+<span class="pos">9-1-4</span>
+<div class="slidecontent"><p>Step 3: inside the project, serve the app</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> my-first-project
+$ ng serve --open
+</code></pre>
+</div></section><section class="slide" data-pos="9-1-5">
+<span class="pos">9-1-5</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>You have your first Angular app up and running!</li>
+</ul>
+</div></section><section class="slide" data-pos="9-1-6">
+<span class="pos">9-1-6</span>
+<div class="slidecontent"><p>When you do have the project up and running, feel free to look around in the
+project&#39;s directory structure.</p>
+<p>More information on <a href="https://angular.io">angular.io</a>.</p>
+</div></section><section class="slide" data-pos="9-1-7">
+<span class="pos">9-1-7</span>
+<div class="slidecontent"><p>Stretch tasks: Can you...</p>
+<ul>
+<li>...remove the Angular logotype?</li>
+<li>...change the style of the heading?</li>
+<li>...change the value of <em>title</em> in the heading?</li>
+<li>...break the whole app in some supremely educational way?</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION1-->
+<!--STARTSECTION2--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 2/12</div>
+      <h3>Models and views</h3>
+      <p>And their discontents</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-2-1">
+<span class="pos">9-2-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>What&#39;s a model? What&#39;s a view?</p>
+<p>And, how we got here.</p>
+</div></section><section class="slide" data-pos="9-2-2">
+<span class="pos">9-2-2</span>
+<div class="slidecontent"><p>Remember the thing with the <code>render()</code> functions?</p>
+</div></section><section class="slide" data-pos="9-2-3">
+<span class="pos">9-2-3</span>
+<div class="slidecontent"><p>Throughout the past decade, we&#39;ve been struggling with updating the DOM.</p>
+</div></section><section class="slide" data-pos="9-2-4">
+<span class="pos">9-2-4</span>
+<div class="slidecontent"><p>The main reason jQuery is passé.</p>
+</div></section><section class="slide" data-pos="9-2-5">
+<span class="pos">9-2-5</span>
+<div class="slidecontent"><p>What we really want:</p>
+<ul>
+<li><strong>Model</strong> - the data in the JavaScript</li>
+<li><strong>View</strong> - the structure in the HTML</li>
+</ul>
+<p>When we change the model, the view should change &quot;automatically&quot;.</p>
+</div></section><section class="slide" data-pos="9-2-6">
+<span class="pos">9-2-6</span>
+<div class="slidecontent"><p>There are other, bigger, concerns too:</p>
+<ul>
+<li>Larger-scale architecture (app structure, services...)</li>
+<li>Unit testing and end-to-end testing</li>
+<li>Routing (we&#39;ll come back to that)</li>
+<li>Cross-cutting (logging, auth, data storage)</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION2-->
+<!--STARTSECTION3--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 3/12</div>
+      <h3>Exercise</h3>
+      <p>It&#39;s been N seconds</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-3-1">
+<span class="pos">9-3-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Let&#39;s implement a Very Small Angular application.</p>
+</div></section><section class="slide" data-pos="9-3-2">
+<span class="pos">9-3-2</span>
+<div class="slidecontent"><pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Component, OnInit} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+<span class="hljs-meta">@Component</span>({ <span class="hljs-comment">/* ... */</span> })
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppComponent <span class="hljs-keyword">implements</span> OnInit {
+  secondsElapsed = <span class="hljs-number">0</span>;
+
+  ngOnInit() {
+    setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-keyword">this</span>.secondsElapsed++;
+    }, <span class="hljs-number">1000</span>);
+  }
+}
+</code></pre>
+</div></section><section class="slide" data-pos="9-3-3">
+<span class="pos">9-3-3</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>The message &quot;This app has been running for 0 seconds&quot; is displayed</li>
+<li>The 0 is bolded</li>
+<li>The number ticks up every second</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION3-->
+<!--STARTSECTION4--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 4/12</div>
+      <h3>Conditional rendering</h3>
+      <p>Neither air conditioning nor hair conditioning</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-4-1">
+<span class="pos">9-4-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Learning how to render something... sometimes.</p>
+</div></section><section class="slide" data-pos="9-4-2">
+<span class="pos">9-4-2</span>
+<div class="slidecontent"><p>The syntax for rendering something conditionally is <code>*ngIf</code>.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"myProperty"</span>&gt;</span>
+  This will only show if myProperty is truthy!
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>Angular will expect you to have declared <code>myProperty</code> on your component.</p>
+</div></section><section class="slide question" data-pos="9-4-3">
+<span class="pos">9-4-3</span>
+<div class="slidecontent">
+<p>What does the star in <code>*ngIf</code> mean?</p>
+</div></section><section class="slide answer" data-pos="9-4-4">
+<span class="pos">9-4-4</span>
+<div class="slidecontent">
+<p>It means <code>ngIf</code> is not a &quot;normal&quot; property.</p>
+<p>Angular takes the <code>ngIf</code> and does something weird/structural with it.</p>
+</div></section>
+</section>
+<!--ENDSECTION4-->
+<!--STARTSECTION5--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 5/12</div>
+      <h3>Exercise</h3>
+      <p>Conditional rendering, here I come!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-5-1">
+<span class="pos">9-5-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Let&#39;s use conditional rendering for something!</p>
+</div></section><section class="slide" data-pos="9-5-2">
+<span class="pos">9-5-2</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>Your app component has a boolean called <code>visible</code> which starts at true</li>
+<li>There are two different divs in your app</li>
+<li>One says &quot;Now you see me&quot;</li>
+<li>The other says &quot;(now you don&#39;t)&quot;</li>
+<li>Only one of them at a time is visible</li>
+<li>They toggle between each other every three seconds</li>
+</ul>
+</div></section><section class="slide" data-pos="9-5-3">
+<span class="pos">9-5-3</span>
+<div class="slidecontent"><p>Stretch tasks:</p>
+<ul>
+<li>Try styling the divs nicely</li>
+<li>Can you also make the divs move downwards across the page? (This may take some searching.)</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION5-->
+<!--STARTSECTION6--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 6/12</div>
+      <h3>Repeated rendering</h3>
+      <p>Again and again and again...</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-6-1">
+<span class="pos">9-6-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Learning how to repeat a given element over an array of data.</p>
+</div></section><section class="slide" data-pos="9-6-2">
+<span class="pos">9-6-2</span>
+<div class="slidecontent"><p>Just like we have <code>*ngIf</code>, we also have <code>*ngFor</code>. It&#39;s modeled on ES6 <code>for</code>
+loops.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let row of rows"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- ... --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p>Again, you&#39;re expected to have declared a <code>rows</code> property.</p>
+</div></section>
+</section>
+<!--ENDSECTION6-->
+<!--STARTSECTION7--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 7/12</div>
+      <h3>Exercise</h3>
+      <p>Loop the loop!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-7-1">
+<span class="pos">9-7-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Let&#39;s render a list of things!</p>
+</div></section><section class="slide" data-pos="9-7-2">
+<span class="pos">9-7-2</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>Your app component has a field <code>favorites</code> with an array of strings</li>
+<li>The strings are of your favorite sauces, or superheroes, or fountain pens</li>
+<li>You have rendered these out as an <code>ul</code> list on the page</li>
+</ul>
+</div></section><section class="slide" data-pos="9-7-3">
+<span class="pos">9-7-3</span>
+<div class="slidecontent"><p>As a stretch task, turn the strings in the array into objects with an
+<code>id: number</code> and a <code>description: string</code>. Make the app work that way instead.</p>
+<p>Also as a stretch task, see if you can <code>setTimeout</code> in the <code>ngOnInit()</code> method,
+adding a new element to the list a few seconds after the page has loaded.</p>
+</div></section>
+</section>
+<!--ENDSECTION7-->
+<!--STARTSECTION8--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 8/12</div>
+      <h3>Styles</h3>
+      <p>Not to mention class</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-8-1">
+<span class="pos">9-8-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Learning how to set <em>dynamic</em> styles.</p>
+</div></section><section class="slide" data-pos="9-8-2">
+<span class="pos">9-8-2</span>
+<div class="slidecontent"><p>For every normal attribute:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"..."</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"you can see me when you hover"</span>&gt;</span>
+</code></pre>
+<p>You have the option to <em>bind</em> some property to it instead:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"..."</span> <span class="hljs-attr">bind-title</span>=<span class="hljs-string">"dynamicTitle"</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="9-8-3">
+<span class="pos">9-8-3</span>
+<div class="slidecontent"><p>Note this is different from the <code>{{ dynamicTitle }}</code> syntax!</p>
+<p>That syntax only works with text nodes. With attributes you have to <code>bind-</code></p>
+</div></section><section class="slide" data-pos="9-8-4">
+<span class="pos">9-8-4</span>
+<div class="slidecontent"><p>Good news! There&#39;s a shorthand syntax. Instead of:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"..."</span> <span class="hljs-attr">bind-title</span>=<span class="hljs-string">"dynamicTitle"</span>&gt;</span>
+</code></pre>
+<p>You can instead do:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"..."</span> [<span class="hljs-attr">title</span>]=<span class="hljs-string">"dynamicTitle"</span>&gt;</span>
+</code></pre>
+<p>Entirely synonymous. The box looks weird at first, but it grows on you.</p>
+</div></section><section class="slide" data-pos="9-8-5">
+<span class="pos">9-8-5</span>
+<div class="slidecontent"><p>For style and class attributes, there are further shorthands:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">style.background</span>]=<span class="hljs-string">"dynamicBackground"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">class.highlight</span>]=<span class="hljs-string">"isItHighlighted"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+</div></section>
+</section>
+<!--ENDSECTION8-->
+<!--STARTSECTION9--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 9/12</div>
+      <h3>Exercise</h3>
+      <p>Setting styles!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-9-1">
+<span class="pos">9-9-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Let&#39;s use our newly learned skills and set some styles on some things.</p>
+</div></section><section class="slide" data-pos="9-9-2">
+<span class="pos">9-9-2</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when you have...</p>
+<ul>
+<li>A div that cycles through three background colors at regular interval</li>
+<li>A h1 heading that changes between two styles, preferably by setting/unsetting a class</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION9-->
+<!--STARTSECTION10--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 10/12</div>
+      <h3>Behavior</h3>
+      <p>If it moves, it&#39;s biology</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-10-1">
+<span class="pos">9-10-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Learning to listen to events and declare event methods.</p>
+</div></section><section class="slide" data-pos="9-10-2">
+<span class="pos">9-10-2</span>
+<div class="slidecontent"><p>Just like there is <code>bind-</code>, there is also <code>on-</code>.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on-click</span>=<span class="hljs-string">"addProduct(product)"</span>&gt;</span>Add<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<p><code>addProduct()</code> is expected to be a method on the component class.</p>
+</div></section><section class="slide" data-pos="9-10-3">
+<span class="pos">9-10-3</span>
+<div class="slidecontent"><p>Shorthand! Parentheses. What you can write like this:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">on-click</span>=<span class="hljs-string">"addProduct(product)"</span>&gt;</span>Add<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<p>You can also write like this:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"addProduct(product)"</span>&gt;</span>Add<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="9-10-4">
+<span class="pos">9-10-4</span>
+<div class="slidecontent"><p>Declaring a method is straightforward:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">class</span> ShoppingCart {
+    products: Product[] = [];
+
+    addProduct(product) {
+        <span class="hljs-keyword">this</span>.products.push(product);
+    }
+}
+</code></pre>
+</div></section><section class="slide" data-pos="9-10-5">
+<span class="pos">9-10-5</span>
+<div class="slidecontent"><p>There&#39;s a special variable <code>$event</code> if you need details of the event.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">mousemove</span>)=<span class="hljs-string">"displayCoordinates($event)"</span>&gt;</span>
+  Move the mouse pointer over me!
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="9-10-6">
+<span class="pos">9-10-6</span>
+<div class="slidecontent"><p>More on which later, but it&#39;s also useful to know about the <code>#id</code> syntax:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> #<span class="hljs-attr">field</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"submit(field.value)"</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<p>It&#39;s a <em>template-only</em> way to identify DOM nodes.</p>
+</div></section>
+</section>
+<!--ENDSECTION10-->
+<!--STARTSECTION11--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 11/12</div>
+      <h3>Exercise</h3>
+      <p>Behavior time!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-11-1">
+<span class="pos">9-11-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Now we have enough to build a &quot;words of wisdom&quot; application!</p>
+</div></section><section class="slide" data-pos="9-11-2">
+<span class="pos">9-11-2</span>
+<div class="slidecontent"><p>Your template can start out something like this:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">"let item of items"</span>&gt;</span>
+      {{item.description}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> #<span class="hljs-attr">new</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Add<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="9-11-3">
+<span class="pos">9-11-3</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>The list shows a few words of wisdom at the start, such as &quot;carpe diem&quot;</li>
+<li>You can press the button and a new one is added</li>
+<li>...and the input is cleared</li>
+</ul>
+</div></section><section class="slide" data-pos="9-11-4">
+<span class="pos">9-11-4</span>
+<div class="slidecontent"><p>Stretch task: See if you can add Bootstrap styling to your app!</p>
+</div></section>
+</section>
+<!--ENDSECTION11-->
+<!--STARTSECTION12--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 12/12</div>
+      <h3>React</h3>
+      <p>The other white meat</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="9-12-1">
+<span class="pos">9-12-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Learning a bit about Angular&#39;s biggest rival, React.</p>
+</div></section><section class="slide" data-pos="9-12-2">
+<span class="pos">9-12-2</span>
+<div class="slidecontent"><p>Installing:</p>
+<pre><code class="lang-sh">$ npm install -g create-react-app
+</code></pre>
+<p>(As Administrator.)</p>
+</div></section><section class="slide" data-pos="9-12-3">
+<span class="pos">9-12-3</span>
+<div class="slidecontent"><p>Creating a new project:</p>
+<pre><code class="lang-sh">$ create-react-app my-react-app
+</code></pre>
+</div></section><section class="slide" data-pos="9-12-4">
+<span class="pos">9-12-4</span>
+<div class="slidecontent"><p>React starts completely from the JavaScript end.</p>
+<p>It asks you to think of a component (and the entire app) as a <em>function</em>
+from the model to the view.</p>
+</div></section><section class="slide" data-pos="9-12-5">
+<span class="pos">9-12-5</span>
+<div class="slidecontent"><p>Each component is its own &quot;render function&quot;:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> App = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    Hello, { props.name || "World" }
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+);
+</code></pre>
+<p>Mixing of HTML into the JavaScript: JSX.</p>
+</div></section><section class="slide" data-pos="9-12-6">
+<span class="pos">9-12-6</span>
+<div class="slidecontent"><p>Conceptual purity: re-render the whole app every time.</p>
+<p>Various optimizations make this realistic.</p>
+</div></section><section class="slide" data-pos="9-12-7">
+<span class="pos">9-12-7</span>
+<div class="slidecontent"><p>There&#39;s also class-based components.</p>
+<pre><code class="lang-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                Hello, { props.name || "World" }
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+</code></pre>
+</div></section><section class="slide question" data-pos="9-12-8">
+<span class="pos">9-12-8</span>
+<div class="slidecontent">
+<p>Why would you ever want to prefer the class components to the
+Purely Functional Components?</p>
+</div></section><section class="slide answer" data-pos="9-12-9">
+<span class="pos">9-12-9</span>
+<div class="slidecontent">
+<p>Two reasons have evolved:</p>
+<ul>
+<li>To keep internal/private state</li>
+<li>To do things with lifecycle hooks</li>
+</ul>
+</div></section><section class="slide" data-pos="9-12-10">
+<span class="pos">9-12-10</span>
+<div class="slidecontent"><p>Historically:</p>
+<ul>
+<li>AngularJS (2009)</li>
+<li>React (2013)</li>
+<li>Angular (2016)</li>
+</ul>
+</div></section><section class="slide" data-pos="9-12-11">
+<span class="pos">9-12-11</span>
+<div class="slidecontent"><p>Time to play around with React?</p>
+</div></section>
+</section>
+<!--ENDSECTION12--><!--ENDCHAPTERCONTENT-->
+        
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var basehref = window.location.href.replace(/chapter\d.*?$/,'')
+
+      document.addEventListener("keydown",function(e){
+        var code = e.which || e.keyCode;
+        if (code===13){
+          window.location.href = basehref+"index.html?from="+(9-1);
+        } else if (code >= 49 && code <= 12+48) {
+          window.location.hash = "#/" + (code-48+1+1);
+        }
+        if (9 < 11) {
+          if (code===99){ // the letter C for next Chapter
+            window.location.href = basehref+"chapter"+(9+1)+".html"
+          }
+        }
+      });
+    </script>
+    <script src="mc2/scripts/head.js" type="text/javascript"></script>
+    <script src="mc2/scripts/reveal.js" type="text/javascript"></script>
+    <script src="mc2/scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    showNotes: false,
+    transition: 'slide',
+    dependencies: [
+      { src: 'mc2/scripts/plugin/notes/notes.js', async: true }
+    ]
+  })
+
+    window.onload = function(){
+
+      var links = document.querySelectorAll("a.link");
+      for(var i=0;i<links.length;i++){
+        var link = links[i];
+        link.innerHTML = link.innerHTML.replace(/ /g,'&nbsp;')
+      }
+      var posElem = document.getElementById('pos')
+      function updateReference(){
+        setTimeout(function(){
+          var currentpos = document.querySelector('section.present[data-pos]')
+          if (currentpos){
+            posElem.innerHTML = currentpos.getAttribute('data-pos')
+          } else {
+            posElem.innerHTML = ''
+          }
+          if (document.querySelector('.present.chaptertitle')){
+            document.body.classList.add('atchaptertitle');
+          } else {
+            document.body.classList.remove('atchaptertitle');
+          }
+        },10)
+      }
+
+      window.addEventListener("hashchange",updateReference);
+
+      updateReference();
+    };
+
+    </script>
+    <!--STARTCOURSESPECIFICSCRIPTS--><script type="text/javascript" src="scripts/cssdemo.js"></script>
+<script type="text/javascript" src="scripts/scoped_polyfill.js"></script><!--ENDCOURSESPECIFICSCRIPTS-->
+  </body>
+</html>

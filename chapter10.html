@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Angular, part II</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="icon" type="image/x-icon" href="mc2/images/favicon.ico">
+
+    <link rel="stylesheet" href="mc2/styles/reveal.css">
+    <link rel="stylesheet" href="mc2/styles/theme.css" id="theme">
+    <link rel="stylesheet" href="mc2/styles/code.css">
+    <!--STARTCOURSESPECIFICSTYLES--><link rel="stylesheet" href="styles/cssdemo.css">
+<link rel="stylesheet" href="styles/sectiontypes.css">
+<link rel="stylesheet" href="styles/style.css"><!--ENDCOURSESPECIFICSTYLES-->
+
+    
+  </head>
+
+  <body>
+    <div id="pos"></div>
+    <div class="reveal">
+      <div class="slides">
+        <section class="slide chaptertitle">
+          <div class="slidecontent">
+            <div class="chapternumber"> chapter 10 of 11 </div>
+            <h1>Angular, part II</h1>
+            <span>More angle brackets, but also other kinds</span>
+          </div>
+        </section>
+        
+        <!--STARTSECTIONINDEX--><section class="slide sectionlist">
+  <div class="slidecontent">
+    <h3>Sections in this chapter</h3>
+    <ol>
+    <li><a href="#/3">Build&nbsp;toolchain</a></li>
+<li><a href="#/4">Exercise</a></li>
+<li><a href="#/5">ES6&nbsp;modules</a></li>
+<li><a href="#/6">Exercise</a></li>
+<li><a href="#/7">Components</a></li>
+<li><a href="#/8">Exercise</a></li>
+<li><a href="#/9">Routes</a></li>
+<li><a href="#/10">Exercise</a></li>
+<li><a href="#/11">Forms</a></li>
+    </ol>
+  </div>
+</section>
+<!--ENDSECTIONINDEX-->
+        <!--STARTCHAPTERCONTENT--><!--STARTSECTION1--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 1/9</div>
+      <h3>Build toolchain</h3>
+      <p>The chains that unite us</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="10-1-1">
+<span class="pos">10-1-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>We are going to learn why a build toolchain is useful,
+and what parts it has.</p>
+</div></section><section class="slide" data-pos="10-1-2">
+<span class="pos">10-1-2</span>
+<div class="slidecontent"><p>What we get:</p>
+<ul>
+<li>Bundling (everything in a single JS file)</li>
+<li>Minification (remove unnecessary characters)</li>
+<li>Transpilation (like TS-&gt;JS)</li>
+<li>Tree shaking (remove uncalled functions)</li>
+<li>Code splitting (separate JS/&quot;lazy loading&quot;)</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION1-->
+<!--STARTSECTION2--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 2/9</div>
+      <h3>Exercise</h3>
+      <p>A game</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="10-2-1">
+<span class="pos">10-2-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Let&#39;s use our newfound Angular skills to write a game.</p>
+</div></section><section class="slide" data-pos="10-2-2">
+<span class="pos">10-2-2</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>Your game has a name, which it shows on the page.</li>
+<li>The game must contain the word &quot;of&quot;, like in &quot;Raiders of the Arctangent&quot; or
+&quot;The Mystery of the Hidden Spoon&quot;</li>
+<li>The rest is up to you! Remember that you can listen to not just <code>click</code>
+events, but also <code>keypress</code> and <code>keydown</code>.</li>
+<li>Keep it simple.</li>
+<li>Bonus points if the game looks nice.</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION2-->
+<!--STARTSECTION3--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 3/9</div>
+      <h3>ES6 modules</h3>
+      <p>They are lovely</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="10-3-1">
+<span class="pos">10-3-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Modules, importing and exporting.</p>
+</div></section><section class="slide" data-pos="10-3-2">
+<span class="pos">10-3-2</span>
+<div class="slidecontent"><p>Modules are necessary in a big code base.</p>
+<p>Separation of concerns.</p>
+</div></section><section class="slide" data-pos="10-3-3">
+<span class="pos">10-3-3</span>
+<div class="slidecontent"><p>Named imports:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { Component, OnInit } <span class="hljs-keyword">from</span> <span class="hljs-string">`@angular/core`</span>;
+</code></pre>
+</div></section><section class="slide" data-pos="10-3-4">
+<span class="pos">10-3-4</span>
+<div class="slidecontent"><p>On the module side:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-comment">// ...</span>
+}
+
+<span class="hljs-keyword">export</span> interface OnInit {
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+</div></section><section class="slide" data-pos="10-3-5">
+<span class="pos">10-3-5</span>
+<div class="slidecontent"><p>Default imports:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+</code></pre>
+</div></section><section class="slide" data-pos="10-3-6">
+<span class="pos">10-3-6</span>
+<div class="slidecontent"><p>On the module side:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">React</span> </span>{
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+</div></section>
+</section>
+<!--ENDSECTION3-->
+<!--STARTSECTION4--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 4/9</div>
+      <h3>Exercise</h3>
+      <p>Totally not a Pac-Man ripoff</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="10-4-1">
+<span class="pos">10-4-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Try out some SVG (and make a small game).</p>
+</div></section><section class="slide" data-pos="10-4-2">
+<span class="pos">10-4-2</span>
+<div class="slidecontent"><p>Example SVG:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">circle</span>
+    <span class="hljs-attr">r</span>=<span class="hljs-string">"20"</span>
+    [<span class="hljs-attr">attr.cx</span>]=<span class="hljs-string">"x"</span>
+    [<span class="hljs-attr">attr.cy</span>]=<span class="hljs-string">"y"</span>
+    <span class="hljs-attr">style</span>=<span class="hljs-string">"fill: yellow; stroke: black"</span>
+  /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="10-4-3">
+<span class="pos">10-4-3</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>You have some SVG that can move based on one of the following:<ul>
+<li><code>setInterval</code></li>
+<li>mouse clicks</li>
+<li>keypresses</li>
+</ul>
+</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION4-->
+<!--STARTSECTION5--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 5/9</div>
+      <h3>Components</h3>
+      <p>Russian dolls are so full of themselves</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="10-5-1">
+<span class="pos">10-5-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>What makes components useful, and why they are the dominant frontend paradigm
+today.</p>
+</div></section><section class="slide" data-pos="10-5-2">
+<span class="pos">10-5-2</span>
+<div class="slidecontent"><p>Components have emerged as a strong unifying idea of all the major MVC
+frameworks. (Angular, React, Vue...)</p>
+<ul>
+<li>Isolation/encapsulation</li>
+<li>Clear parent/child communication</li>
+<li>Separation of concerns</li>
+</ul>
+</div></section><section class="slide" data-pos="10-5-3">
+<span class="pos">10-5-3</span>
+<div class="slidecontent"><p>You can create a new component using</p>
+<pre><code class="lang-sh">$ ng generate component SearchBox
+</code></pre>
+</div></section><section class="slide" data-pos="10-5-4">
+<span class="pos">10-5-4</span>
+<div class="slidecontent"><p>How do components communicate?</p>
+<p>Remember, &quot;data down, actions up&quot;.</p>
+<p>Let&#39;s look in the guide to learn about <code>@Input</code> and <code>@Output</code>.</p>
+</div></section>
+</section>
+<!--ENDSECTION5-->
+<!--STARTSECTION6--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 6/9</div>
+      <h3>Exercise</h3>
+      <p>Components!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="10-6-1">
+<span class="pos">10-6-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Let&#39;s try out components in our own app.</p>
+</div></section><section class="slide" data-pos="10-6-2">
+<span class="pos">10-6-2</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>You have a working component in your app that communicates, at least
+using <code>@Input</code>.</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION6-->
+<!--STARTSECTION7--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 7/9</div>
+      <h3>Routes</h3>
+      <p>The garden of forking paths</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="10-7-1">
+<span class="pos">10-7-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>In this section we&#39;ll learn about routing.</p>
+</div></section><section class="slide" data-pos="10-7-2">
+<span class="pos">10-7-2</span>
+<div class="slidecontent"><p>A routing example:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> appRoutes: Routes = [
+  { <span class="hljs-attr">path</span>: <span class="hljs-string">'crisis-center'</span>, <span class="hljs-attr">component</span>: CrisisListComponent },
+  { <span class="hljs-attr">path</span>: <span class="hljs-string">'hero/:id'</span>, <span class="hljs-attr">component</span>: HeroDetailComponent },
+];
+</code></pre>
+<p>(See also the <a href="https://angular.io/guide/router">Angular Guide</a>.)</p>
+</div></section>
+</section>
+<!--ENDSECTION7-->
+<!--STARTSECTION8--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 8/9</div>
+      <h3>Exercise</h3>
+      <p>Some more time for tinkering</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="10-8-1">
+<span class="pos">10-8-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>In this exercise, you&#39;re free to try out routing, or anything else we&#39;ve talked about during the day.</p>
+</div></section>
+</section>
+<!--ENDSECTION8-->
+<!--STARTSECTION9--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 9/9</div>
+      <h3>Forms</h3>
+      <p>In triplicate</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="10-9-1">
+<span class="pos">10-9-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Learning about forms in Angular.</p>
+</div></section><section class="slide" data-pos="10-9-2">
+<span class="pos">10-9-2</span>
+<div class="slidecontent"><p>Let&#39;s use the <a href="https://angular.io/guide/forms">Angular guide about forms</a>.</p>
+</div></section>
+</section>
+<!--ENDSECTION9--><!--ENDCHAPTERCONTENT-->
+        
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var basehref = window.location.href.replace(/chapter\d.*?$/,'')
+
+      document.addEventListener("keydown",function(e){
+        var code = e.which || e.keyCode;
+        if (code===13){
+          window.location.href = basehref+"index.html?from="+(10-1);
+        } else if (code >= 49 && code <= 9+48) {
+          window.location.hash = "#/" + (code-48+1+1);
+        }
+        if (10 < 11) {
+          if (code===99){ // the letter C for next Chapter
+            window.location.href = basehref+"chapter"+(10+1)+".html"
+          }
+        }
+      });
+    </script>
+    <script src="mc2/scripts/head.js" type="text/javascript"></script>
+    <script src="mc2/scripts/reveal.js" type="text/javascript"></script>
+    <script src="mc2/scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    showNotes: false,
+    transition: 'slide',
+    dependencies: [
+      { src: 'mc2/scripts/plugin/notes/notes.js', async: true }
+    ]
+  })
+
+    window.onload = function(){
+
+      var links = document.querySelectorAll("a.link");
+      for(var i=0;i<links.length;i++){
+        var link = links[i];
+        link.innerHTML = link.innerHTML.replace(/ /g,'&nbsp;')
+      }
+      var posElem = document.getElementById('pos')
+      function updateReference(){
+        setTimeout(function(){
+          var currentpos = document.querySelector('section.present[data-pos]')
+          if (currentpos){
+            posElem.innerHTML = currentpos.getAttribute('data-pos')
+          } else {
+            posElem.innerHTML = ''
+          }
+          if (document.querySelector('.present.chaptertitle')){
+            document.body.classList.add('atchaptertitle');
+          } else {
+            document.body.classList.remove('atchaptertitle');
+          }
+        },10)
+      }
+
+      window.addEventListener("hashchange",updateReference);
+
+      updateReference();
+    };
+
+    </script>
+    <!--STARTCOURSESPECIFICSCRIPTS--><script type="text/javascript" src="scripts/cssdemo.js"></script>
+<script type="text/javascript" src="scripts/scoped_polyfill.js"></script><!--ENDCOURSESPECIFICSCRIPTS-->
+  </body>
+</html>

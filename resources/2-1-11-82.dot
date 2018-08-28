@@ -1,0 +1,19 @@
+digraph {
+  rankdir = TD
+  bgcolor = transparent
+  A -> B [label="needs"]
+  A -> C [label="uses"]
+  C -> A [label="contains"]
+  B -> D [label="implements"]
+  B -> E [label="hates" dir=both]
+  C -> F [label="killed"]
+
+  D -> E [label="loves"]
+  C -> E [label="divorced"]
+
+  E -> F [label="owns"]
+
+  Q -> C [label="knows" dir=both]
+
+  {rank=same; D, F}
+}

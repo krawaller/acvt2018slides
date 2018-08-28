@@ -1,0 +1,46 @@
+.frame .render em {
+  color: initial;
+  font-style: italic;
+}
+
+.cssdemo .title:before {
+    content: "CSS demo: ";
+}
+
+.explanation p:nth-child(2) {
+    display: inline-block;
+    margin-top: 0;
+}
+
+.explanation :last-child {
+    margin-bottom: 0;
+}
+
+.frame {
+    background-color: #EEE;
+    padding: 10px;
+    margin-bottom: 1em;
+}
+
+.frame > div:first-child {
+  display: flex;
+}
+
+.frame > div:first-child > * {
+  flex: 1;
+}
+
+.frame pre.css {
+  margin: 0;
+}
+
+.frame .framepos:before {
+  content: "Variant ";
+}
+
+.frame .explanation {
+  text-align: center;
+  border-top: 1px solid #CCC;
+  padding-top: 10px;
+  margin-top: 10px;
+}

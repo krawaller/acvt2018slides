@@ -1,0 +1,8 @@
+digraph {
+  rankdir = LR;
+  bgcolor = transparent;
+  pure -> test -> well
+  pure [label="pure functions"]
+  test [label="easy to test"]
+  well [label="well organised"]
+}

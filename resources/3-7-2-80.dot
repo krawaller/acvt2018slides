@@ -1,0 +1,21 @@
+digraph {
+  bgcolor = transparent
+  rankdir = TD
+
+  CSS -> CSSsel
+
+  CSS -> rule
+
+  rule [label="style rules" penwidth=3]
+
+  CSSsel [label="selectors"]
+
+  desc [label="element\ndescriptions"]
+
+  combinators [label="combinators"]
+
+  CSSsel -> desc
+
+  CSSsel -> combinators
+
+}

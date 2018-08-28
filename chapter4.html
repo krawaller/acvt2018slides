@@ -1,0 +1,1302 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>More CSS</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="icon" type="image/x-icon" href="mc2/images/favicon.ico">
+
+    <link rel="stylesheet" href="mc2/styles/reveal.css">
+    <link rel="stylesheet" href="mc2/styles/theme.css" id="theme">
+    <link rel="stylesheet" href="mc2/styles/code.css">
+    <!--STARTCOURSESPECIFICSTYLES--><link rel="stylesheet" href="styles/cssdemo.css">
+<link rel="stylesheet" href="styles/sectiontypes.css">
+<link rel="stylesheet" href="styles/style.css"><!--ENDCOURSESPECIFICSTYLES-->
+
+    
+  </head>
+
+  <body>
+    <div id="pos"></div>
+    <div class="reveal">
+      <div class="slides">
+        <section class="slide chaptertitle">
+          <div class="slidecontent">
+            <div class="chapternumber"> chapter 4 of 11 </div>
+            <h1>More CSS</h1>
+            <span>sharpening the tools</span>
+          </div>
+        </section>
+        
+        <!--STARTSECTIONINDEX--><section class="slide sectionlist">
+  <div class="slidecontent">
+    <h3>Sections in this chapter</h3>
+    <ol>
+    <li><a href="#/2">Pseudo&nbsp;Elements</a></li>
+<li><a href="#/3">CSS&nbsp;Deluxe</a></li>
+<li><a href="#/4">Exercise&nbsp;&#8209;&nbsp;Build&nbsp;step</a></li>
+<li><a href="#/5">Transitions</a></li>
+<li><a href="#/6">Animations</a></li>
+<li><a href="#/7">Exercise&nbsp;&#8209;&nbsp;Going&nbsp;overboard</a></li>
+<li><a href="#/8">Order</a></li>
+<li><a href="#/9">Good&nbsp;behaviour</a></li>
+<li><a href="#/10">Layout</a></li>
+<li><a href="#/11">Flexbox</a></li>
+<li><a href="#/12">Exercise&nbsp;&#8209;&nbsp;Faux&nbsp;columns</a></li>
+    </ol>
+  </div>
+</section>
+<!--ENDSECTIONINDEX-->
+        <!--STARTCHAPTERCONTENT--><!--STARTSECTION1--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 1/11</div>
+      <h3>Pseudo Elements</h3>
+      <p>Where did you come from?!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-1-1">
+<span class="pos">4-1-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Understanding what <strong>pseudo elements</strong> are and how to create them.</p>
+</div></section><section class="slide" data-pos="4-1-2">
+<span class="pos">4-1-2</span>
+<div class="slidecontent"><p>You&#39;ve already met pseudo classes. However, the <strong>pseudo elements</strong> do something we haven&#39;t yet seen - they <strong>add new elements</strong> to the document!</p>
+</div></section><section class="slide" data-pos="4-1-3">
+<span class="pos">4-1-3</span>
+<div class="slidecontent"><p>Say we have this <code>p</code> element:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Eeexiiit <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>light!<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> Eeenteeer <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>niiiight!<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide" data-pos="4-1-4">
+<span class="pos">4-1-4</span>
+<div class="slidecontent"><p>And we target it with this CSS:</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">p</span><span class="hljs-selector-pseudo">:before</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">"♬ "</span>;
+}
+<span class="hljs-selector-tag">p</span><span class="hljs-selector-pseudo">:after</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">" ♫♩"</span>
+}
+</code></pre>
+</div></section><section class="slide" data-pos="4-1-5">
+<span class="pos">4-1-5</span>
+<div class="slidecontent"><p>Then we get this <strong>output</strong>:</p>
+<p><img src="resources/images/sandman.png" alt=""></p>
+</div></section><section class="slide" data-pos="4-1-6">
+<span class="pos">4-1-6</span>
+<div class="slidecontent"><p>Note however that the notes <strong>don&#39;t actually come before and after</strong> the <code>p</code> element, but rather <strong>become the youngest and oldest children</strong>:</p>
+<p><img src="resources/4-1-6-145.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="4-1-7">
+<span class="pos">4-1-7</span>
+<div class="slidecontent"><p>In other words, <code>:before</code> and <code>:after</code> are <strong>misleading names</strong>, they should have been called something else. Also there should be an <em>actual</em> before and after, but there isn&#39;t.</p>
+</div></section><section class="slide" data-pos="4-1-8">
+<span class="pos">4-1-8</span>
+<div class="slidecontent"><p>But still, the <strong>pseudo elements are a powerful tool</strong> when the moment is right.</p>
+<p>Note that you don&#39;t have to use it for text content - we can also set <code>display</code> to <code>block</code>, add background images and all sort of shenanigans!</p>
+</div></section>
+</section>
+<!--ENDSECTION1-->
+<!--STARTSECTION2--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 2/11</div>
+      <h3>CSS Deluxe</h3>
+      <p>bells and whistles</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-2-1">
+<span class="pos">4-2-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Learning about CSS preprocessors</p>
+</div></section><section class="slide" data-pos="4-2-2">
+<span class="pos">4-2-2</span>
+<div class="slidecontent"><p>Although CSS has grown more powerful, there is still <strong>a lot to be desired</strong>.</p>
+<ul>
+<li><strong>variables</strong></li>
+<li><strong>computations</strong></li>
+<li><strong>mixins</strong></li>
+<li><strong>nested declarations</strong></li>
+</ul>
+</div></section><section class="slide" data-pos="4-2-3">
+<span class="pos">4-2-3</span>
+<div class="slidecontent"><p>This has driven many to try to <strong>add a layer on top of CSS</strong>. The two most popular solutions are <strong>SASS and LESS</strong>.</p>
+<div class="equality">
+  <img src="resources/images/sass.svg" alt="js">
+  <span></span>
+  <img src="resources/images/less.png" alt="heart">
+</div>
+
+
+<p>Read more at <a href="http://sass-lang.com/">http://sass-lang.com/</a> and <a href="http://lesscss.org/">http://lesscss.org/</a>.</p>
+</div></section><section class="slide" data-pos="4-2-4">
+<span class="pos">4-2-4</span>
+<div class="slidecontent"><p>The idea is that we write in a language that <strong>compiles down to regular CSS</strong>.</p>
+<p><img src="resources/4-2-4-82.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="4-2-5">
+<span class="pos">4-2-5</span>
+<div class="slidecontent"><p>The LESS homepage shows <strong>this LESS code</strong>:</p>
+<pre><code class="lang-less"><span class="hljs-variable">@base:</span> <span class="hljs-number">#f938ab</span>;
+
+<span class="hljs-selector-class">.box-shadow</span>(<span class="hljs-variable">@style</span>, <span class="hljs-variable">@c</span>) <span class="hljs-keyword">when</span> (iscolor(<span class="hljs-variable">@c</span>)) {
+  <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-variable">@style</span> <span class="hljs-variable">@c</span>;
+  <span class="hljs-attribute">box-shadow</span>:         <span class="hljs-variable">@style</span> <span class="hljs-variable">@c</span>;
+}
+<span class="hljs-selector-class">.box-shadow</span>(<span class="hljs-variable">@style</span>, <span class="hljs-variable">@alpha</span>: <span class="hljs-number">50%</span>) <span class="hljs-keyword">when</span> (isnumber(<span class="hljs-variable">@alpha</span>)) {
+  <span class="hljs-selector-class">.box-shadow</span>(<span class="hljs-variable">@style</span>, rgba(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-variable">@alpha</span>));
+}
+<span class="hljs-selector-class">.box</span> {
+  <span class="hljs-attribute">color</span>: saturate(<span class="hljs-variable">@base</span>, <span class="hljs-number">5%</span>);
+  <span class="hljs-attribute">border-color</span>: lighten(<span class="hljs-variable">@base</span>, <span class="hljs-number">30%</span>);
+  <span class="hljs-selector-tag">div</span> { <span class="hljs-selector-class">.box-shadow</span>(<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span>, <span class="hljs-number">30%</span>) }
+}
+</code></pre>
+</div></section><section class="slide" data-pos="4-2-6">
+<span class="pos">4-2-6</span>
+<div class="slidecontent"><p>...which <strong>compiles to this CSS</strong>:</p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.box</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fe33ac</span>;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#fdcdea</span>;
+}
+<span class="hljs-selector-class">.box</span> <span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.3);
+  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.3);
+}
+</code></pre>
+</div></section><section class="slide" data-pos="4-2-7">
+<span class="pos">4-2-7</span>
+<div class="slidecontent"><p>Of course, using something like this means that we require a <strong>build step</strong>!</p>
+<p>But as you will find, this is something that is <strong>regularly used</strong> in the web world, even though HTML, CSS and JS are all interpreted.</p>
+</div></section><section class="slide" data-pos="4-2-8">
+<span class="pos">4-2-8</span>
+<div class="slidecontent"><p>Why? <strong>Many reasons</strong>, three of which are:</p>
+<ul>
+<li>use <strong>preprocess languages</strong> for CSS or JS</li>
+<li>write in the <strong>latest tech</strong>, dumb it down for the browser</li>
+<li><strong>minification</strong> (strip whitespace and comments)</li>
+</ul>
+</div></section>
+</section>
+<!--ENDSECTION2-->
+<!--STARTSECTION3--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 3/11</div>
+      <h3>Exercise - Build step</h3>
+      <p>LESS is more</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-3-1">
+<span class="pos">4-3-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Trying out a CSS preprocessor</p>
+</div></section><section class="slide list" data-pos="4-3-2">
+<span class="pos">4-3-2</span>
+<div class="slidecontent">
+<p>No surprise - we&#39;ll now <strong>integrate LESS</strong> into our game!</p>
+<ul>
+<li><span>a</span>install LESS</li>
+<li><span>b</span>use LESS syntax</li>
+<li><span>c</span>generate CSS</li>
+</ul>
+</div></section><section class="slide num numA" data-pos="4-3-3">
+<span class="pos">4-3-3</span>
+<div class="slidecontent">
+<p>As we saw, this means that we now need a <strong>build step</strong> which <strong>compiles the LESS code into CSS</strong>. But, to do that we need to <strong>install LESS</strong>!</p>
+</div></section><section class="slide" data-pos="4-3-4">
+<span class="pos">4-3-4</span>
+<div class="slidecontent"><p>When you installed Node you also got <strong>npm</strong>, which is a <strong>package manager</strong> that runs in Node. LESS is distributed as such a package.</p>
+<p><img src="resources/images/npm.png" alt=""></p>
+<p>You can read more about npm here: <a href="https://www.npmjs.com/">https://www.npmjs.com/</a></p>
+</div></section><section class="slide" data-pos="4-3-5">
+<span class="pos">4-3-5</span>
+<div class="slidecontent"><p>LESS is installed as a global command. Open a <strong>terminal</strong> - it doesn&#39;t matter in which folder you are - and type:</p>
+<pre><code>npm <span class="hljs-keyword">install</span> -g <span class="hljs-keyword">less</span>
+</code></pre></div></section><section class="slide num numB" data-pos="4-3-6">
+<span class="pos">4-3-6</span>
+<div class="slidecontent">
+<p>Time to employ LESS in our project! You need to...</p>
+<ul>
+<li><strong>Rename</strong> your <code>.css</code> file to <code>.less</code>. CSS is valid LESS! </li>
+<li>Read up on LESS and <strong>use some features in your file</strong>.</li>
+</ul>
+</div></section><section class="slide num numC" data-pos="4-3-7">
+<span class="pos">4-3-7</span>
+<div class="slidecontent">
+<p>Now that we have a <code>.less</code> file with LESS code, we need to <strong>compile</strong> it to CSS!</p>
+<p>When we installed LESS, we got access to the <strong><code>lessc</code> command</strong>.</p>
+</div></section><section class="slide" data-pos="4-3-8">
+<span class="pos">4-3-8</span>
+<div class="slidecontent"><p>You use it like this...</p>
+<pre><code class="lang-textx">lessc path/to/styles.less wanted/output/path/styles.css
+</code></pre>
+<p>...with the paths adjusted for your project.</p>
+</div></section><section class="slide" data-pos="4-3-9">
+<span class="pos">4-3-9</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>There&#39;s a <code>.less</code> file using some LESS syntax</li>
+<li>There&#39;s a <code>.css</code> file compiled from the <code>.less</code> file</li>
+<li>The game looks the same (or better)</li>
+</ul>
+</div></section><section class="slide challenge" data-pos="4-3-10">
+<span class="pos">4-3-10</span>
+<div class="slidecontent"><p><strong>Challenge</strong>: Of course, having to remember to compile the <code>.less</code> file is tiresome. It is therefore common to <strong>set up an automagic compiler</strong>. Try your hand at this! There are many solutions, one suggestion is to use this: <a href="https://github.com/jonycheung/deadsimple-less-watch-compiler">https://github.com/jonycheung/deadsimple-less-watch-compiler</a>.</p>
+</div></section><section class="slide challenge" data-pos="4-3-11">
+<span class="pos">4-3-11</span>
+<div class="slidecontent"><p><strong>Challenge</strong>: If you still have time and/or energy left over, try to <strong>find some use for pseudo elements</strong> in your app!</p>
+</div></section>
+</section>
+<!--ENDSECTION3-->
+<!--STARTSECTION4--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 4/11</div>
+      <h3>Transitions</h3>
+      <p>Slowing things down</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-4-1">
+<span class="pos">4-4-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Wielding the powerful transition property</p>
+</div></section><section class="slide" data-pos="4-4-2">
+<span class="pos">4-4-2</span>
+<div class="slidecontent"><p>Normally, if a <strong>style property of an element changes value</strong>, the <strong>change is instantaneous</strong>.</p>
+</div></section><section class="slide" data-pos="4-4-3">
+<span class="pos">4-4-3</span>
+<div class="slidecontent"><p>For example, we apply this style...</p>
+<pre><code class="lang-css"><span class="hljs-selector-id">#instantexample</span><span class="hljs-selector-pseudo">:hover</span> {
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(45deg);
+}
+</code></pre>
+<p>...to this <code>div</code>, so <strong>try hovering over it</strong>!</p>
+<div id="instantexample"></div></div></section><section class="slide" data-pos="4-4-4">
+<span class="pos">4-4-4</span>
+<div class="slidecontent"><p>This div is exactly the same as before, but with <strong>one additional rule</strong>:</p>
+<pre><code><span class="hljs-selector-id">#transitionexample</span> {
+  <span class="hljs-attribute">transition</span>: transform <span class="hljs-number">1s</span> ease;
+}
+</code></pre><p>Try <strong>hovering again</strong>!</p>
+<div id="transitionexample"></div></div></section><section class="slide" data-pos="4-4-5">
+<span class="pos">4-4-5</span>
+<div class="slidecontent"><p>As you probably figure, transitions are <strong>a really powerful way to do CSS-only animations</strong>, and <strong>well worth getting to know well</strong>.</p>
+</div></section><section class="slide" data-pos="4-4-6">
+<span class="pos">4-4-6</span>
+<div class="slidecontent"><p>Some notes;</p>
+<ul>
+<li>The <strong>full shorthand syntax</strong> is <code>transition: &lt;property&gt; &lt;duration&gt; &lt;timing function&gt; &lt;delay&gt;</code></li>
+<li>We can transition <strong>more than one property</strong> by separating them with <code>,</code>: <code>transition: width 2s, height 2s</code></li>
+<li>As with many new / experimental technologies some browsers might require <strong>vendor prefixes</strong> still: <code>-webkit-transition</code>, <code>-ms-transition</code>, etc. Although the need is growing less and less frequent.</li>
+</ul>
+</div></section><section class="slide" data-pos="4-4-7">
+<span class="pos">4-4-7</span>
+<div class="slidecontent"><p>As per usual there are <strong>lots more detail on MDN</strong>:</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">https://developer.mozilla.org/en-US/docs/Web/CSS/transition</a></p>
+</div></section><section class="slide" data-pos="4-4-8">
+<span class="pos">4-4-8</span>
+<div class="slidecontent"><p>Btw, the <strong><code>transform</code> property</strong> that we used as a transition example is really powerful, and worthy of looking up for its own sake!</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">https://developer.mozilla.org/en-US/docs/Web/CSS/transform</a></p>
+</div></section>
+</section>
+<!--ENDSECTION4-->
+<!--STARTSECTION5--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 5/11</div>
+      <h3>Animations</h3>
+      <p>ACTUAL animations, that is!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-5-1">
+<span class="pos">4-5-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Learning about CSS-based animations</p>
+</div></section><section class="slide" data-pos="4-5-2">
+<span class="pos">4-5-2</span>
+<div class="slidecontent"><p>With <strong>transitions</strong> we can do <strong>simple animations from one state to another</strong>.</p>
+<p>But CSS also provides <strong>actual animations</strong> where we <strong>change between predefined frames</strong>!</p>
+</div></section><section class="slide" data-pos="4-5-3">
+<span class="pos">4-5-3</span>
+<div class="slidecontent"><p>Behold <strong>this beautiful example</strong>!</p>
+<div id="animationexample">
+  <div></div>
+</div></div></section><section class="slide" data-pos="4-5-4">
+<span class="pos">4-5-4</span>
+<div class="slidecontent"><p>An animation consists of <strong>two parts</strong>. First we <strong>name the animation</strong> and <strong>define the keyframes</strong>, which contain <strong>property values</strong> to be reached at <strong>various points during the animation timeline</strong>. These values will <strong>transition</strong> from one point to the next.</p>
+</div></section><section class="slide" data-pos="4-5-5">
+<span class="pos">4-5-5</span>
+<div class="slidecontent"><p>The earlier animation was <strong>defined like this</strong>:</p>
+<pre><code class="lang-css">@<span class="hljs-keyword">keyframes</span> looparound {
+  0% {
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  }
+  25% {
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">470px</span>;
+  }
+  50% {
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">170px</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">470px</span>;
+  }
+  75% {
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">170px</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  }
+  100% {
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  }
+}
+</code></pre>
+</div></section><section class="slide" data-pos="4-5-6">
+<span class="pos">4-5-6</span>
+<div class="slidecontent"><p>And our element then <strong>used the animation</strong> by specifying <strong>name</strong>, <strong>duration</strong> and <strong>repeats</strong>:</p>
+<pre><code class="lang-css"><span class="hljs-selector-id">#animationexample</span> &gt; <span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">animation-name</span>: looparound;
+  <span class="hljs-attribute">animation-duration</span>: <span class="hljs-number">3s</span>;
+  <span class="hljs-attribute">animation-iteration-count</span>: infinite;
+}
+</code></pre>
+</div></section><section class="slide" data-pos="4-5-7">
+<span class="pos">4-5-7</span>
+<div class="slidecontent"><p>If we only want to <strong>go from one set of property values to another</strong>, then we <strong>might as well just use transitions</strong>.</p>
+<p>But there are <strong>more than two frames involved</strong> we must <strong>use animations instead</strong>!</p>
+</div></section>
+</section>
+<!--ENDSECTION5-->
+<!--STARTSECTION6--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 6/11</div>
+      <h3>Exercise - Going overboard</h3>
+      <p>Because more is always better</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-6-1">
+<span class="pos">4-6-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Getting some experience with transitions and animations</p>
+</div></section><section class="slide" data-pos="4-6-2">
+<span class="pos">4-6-2</span>
+<div class="slidecontent"><p>Our newfound knowledge leaves us no choice - we absolutely must <strong>add transitions and animations</strong> to our game!</p>
+<p>Look your game over, and <strong>any place where you can cram movement, do it</strong>!</p>
+</div></section><section class="slide" data-pos="4-6-3">
+<span class="pos">4-6-3</span>
+<div class="slidecontent"><p>Don&#39;t forget to <strong>edit the <code>.less</code> file</strong> and regenerate your <code>.css</code>.</p>
+<p>We&#39;ll <strong>never edit the <code>.css</code> file directly again</strong>!</p>
+</div></section><section class="slide" data-pos="4-6-4">
+<span class="pos">4-6-4</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>Things are moving around at an annoying level</li>
+<li>The game is updated on Github</li>
+</ul>
+</div></section><section class="slide challenge" data-pos="4-6-5">
+<span class="pos">4-6-5</span>
+<div class="slidecontent"><p><strong>Challenge</strong>: For extra annoyment points, <strong>read up on <code>transform</code></strong> and do some <strong><code>transition</code> or <code>transformation</code></strong> with that! I have it from good authority that <strong>users LOVE when you use <code>skew</code></strong>! Promise!</p>
+</div></section>
+</section>
+<!--ENDSECTION6-->
+<!--STARTSECTION7--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 7/11</div>
+      <h3>Order</h3>
+      <p>let the race begin!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-7-1">
+<span class="pos">4-7-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Understanding who wins a CSS argument</p>
+</div></section><section class="slide question" data-pos="4-7-2">
+<span class="pos">4-7-2</span>
+<div class="slidecontent">
+<p>So, styles can be defined in many different places. But, <strong>what happens when the same style is applied in different ways</strong>?</p>
+</div></section><section class="slide answer" data-pos="4-7-3">
+<span class="pos">4-7-3</span>
+<div class="slidecontent">
+<p>The browser follows a strict pecking order:</p>
+<p><img src="resources/4-7-3-58.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="4-7-4">
+<span class="pos">4-7-4</span>
+<div class="slidecontent"><p>There were some things in there that we don&#39;t yet know about. First, <code>!important</code> - this is a keyword you can <strong>add to the end of a rule</strong> to bring it to the top of the pecking order.</p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.special</span> {
+   <span class="hljs-attribute">background</span>: yellow <span class="hljs-meta">!important</span>;
+}
+</code></pre>
+<p>But as noted this is <strong>considered bad practice</strong>, just as <strong>inline styles are considered harmful</strong>.</p>
+</div></section><section class="slide" data-pos="4-7-5">
+<span class="pos">4-7-5</span>
+<div class="slidecontent"><p>So if we <strong>avoid those two</strong>...</p>
+<p><img src="resources/4-7-5-35.svg" alt="dot"></p>
+<p>...the primary order decider is <strong>specificity</strong>. But, what is that?</p>
+</div></section><section class="slide" data-pos="4-7-6">
+<span class="pos">4-7-6</span>
+<div class="slidecontent"><p>Specificity is the <strong>&quot;weight&quot; of the rule</strong>, which is calculated according to a formula. The gist;</p>
+<ul>
+<li><strong><code>#id</code></strong> selectors are the heaviest</li>
+<li>then <strong><code>.class</code></strong>, <strong><code>[attributes]</code></strong> and <strong><code>:pseudo</code></strong></li>
+<li>and finally <strong>type</strong>.</li>
+</ul>
+</div></section><section class="slide" data-pos="4-7-7">
+<span class="pos">4-7-7</span>
+<div class="slidecontent"><p>Say you have this style...</p>
+<pre><code><span class="hljs-selector-tag">p</span><span class="hljs-selector-pseudo">:first-line</span> {
+  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">2em</span>;
+}
+</code></pre><p>...but you are also using an <strong>external CSS sheet</strong> which <strong>overrides your style</strong>.</p>
+</div></section><section class="slide" data-pos="4-7-8">
+<span class="pos">4-7-8</span>
+<div class="slidecontent"><p>Then you need to <strong>make your style more specific</strong>, often by <strong>prefixing it with ancestor specifications</strong> that you otherwise don&#39;t need: </p>
+<pre><code><span class="hljs-selector-tag">body</span> div<span class="hljs-selector-id">#app-wrapper</span> <span class="hljs-selector-tag">p</span>:first-line {
+  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">2em</span>;
+}
+</code></pre></div></section><section class="slide" data-pos="4-7-9">
+<span class="pos">4-7-9</span>
+<div class="slidecontent"><p>A final note; since <strong>browser defaults can vary</strong>, it is common to use a <strong>reset sheet</strong> to be (more) sure that everything looks the same in different browsers.</p>
+<p>An <strong>old but popular sheet</strong> is the one by CSS guru Eric Meyer which you can find here: <a href="http://meyerweb.com/eric/tools/css/reset/">http://meyerweb.com/eric/tools/css/reset/</a></p>
+</div></section><section class="slide" data-pos="4-7-10">
+<span class="pos">4-7-10</span>
+<div class="slidecontent"><p>And with a CSS reset sheet, we have <strong>simplified our world</strong> a little bit further!</p>
+<p><img src="resources/4-7-10-86.svg" alt="dot"></p>
+</div></section>
+</section>
+<!--ENDSECTION7-->
+<!--STARTSECTION8--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 8/11</div>
+      <h3>Good behaviour</h3>
+      <p>Our code of conduct</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-8-1">
+<span class="pos">4-8-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Having some guidelines to follow</p>
+</div></section><section class="slide" data-pos="4-8-2">
+<span class="pos">4-8-2</span>
+<div class="slidecontent"><p>We&#39;ve touched upon most of these points already, but let&#39;s <strong>gather up the stone tablets of CSS behaviour rules</strong>!</p>
+</div></section><section class="slide" data-pos="4-8-3">
+<span class="pos">4-8-3</span>
+<div class="slidecontent"><blockquote>
+<p>Thou shalt not use visual elements</p>
+</blockquote>
+<ul>
+<li><code>&lt;br&gt;</code> for a linebreak</li>
+<li><code>&lt;hr&gt;</code> for a horisontal ruler</li>
+</ul>
+<p>These are <strong>FORBIDDEN</strong>!</p>
+</div></section><section class="slide" data-pos="4-8-4">
+<span class="pos">4-8-4</span>
+<div class="slidecontent"><blockquote>
+<p>Thou shalt not use visual attributes</p>
+</blockquote>
+<ul>
+<li><code>&lt;div bgcolor=&quot;red&quot;&gt;</code></li>
+<li><code>&lt;div height=&quot;300&quot;&gt;</code></li>
+</ul>
+<p>These are <strong>VERBOTEN</strong>!</p>
+</div></section><section class="slide" data-pos="4-8-5">
+<span class="pos">4-8-5</span>
+<div class="slidecontent"><blockquote>
+<p>Thou shalt keep the <code>html</code> as clean as possible</p>
+</blockquote>
+<p>Instead of doing this...</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"firstParagraph"</span>&gt;</span>Little red riding hood...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Then came the big bad wolf...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p>...and this...</p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.firstParagraph</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#CCC</span>;
+}
+</code></pre>
+</div></section><section class="slide" data-pos="4-8-6">
+<span class="pos">4-8-6</span>
+<div class="slidecontent"><p>...you should <strong>skip the class</strong> and just do this:</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">p</span><span class="hljs-selector-pseudo">:first-child</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#CCC</span>;
+}
+</code></pre>
+<p>Try to <strong>solve the selection without cluttering the html</strong>, as much as possible.</p>
+</div></section><section class="slide" data-pos="4-8-7">
+<span class="pos">4-8-7</span>
+<div class="slidecontent"><blockquote>
+<p>Thou shalt keep your selectors simple</p>
+</blockquote>
+<p>Don&#39;t make your selectors more specific than they need to be!</p>
+</div></section><section class="slide question" data-pos="4-8-8">
+<span class="pos">4-8-8</span>
+<div class="slidecontent"><p><strong>Question</strong>: Ehm, doesn&#39;t that commandment collide with the previous one? Isn&#39;t it <strong>easier to avoid cluttering the html if we have more complex selectors</strong>? And <strong>easier to write short selectors if we add some classes or extra divs to the html</strong>?</p>
+</div></section><section class="slide answer" data-pos="4-8-9">
+<span class="pos">4-8-9</span>
+<div class="slidecontent"><p><strong>Answer</strong>: Yes. :D</p>
+</div></section><section class="slide" data-pos="4-8-10">
+<span class="pos">4-8-10</span>
+<div class="slidecontent"><blockquote>
+<p>Thou shalt keep your CSS organized</p>
+</blockquote>
+<p>Keeping order in your Java project is easy - <strong>give classes good names</strong>, <strong>sort them in modules</strong>, etc. But <strong>doing it in CSS is hard</strong>!</p>
+<p>Still, <strong>you must try</strong>! Use <strong>comments</strong>, <strong>file separation</strong> and <strong>structure</strong>. A good tip is to <strong>do whatever Nicole Sullivan says</strong>: <a href="http://www.stubbornella.org/">http://www.stubbornella.org/</a></p>
+</div></section><section class="slide" data-pos="4-8-11">
+<span class="pos">4-8-11</span>
+<div class="slidecontent"><p>There are many who argue that <strong>relying on specificity</strong> at all is <strong>dangerous</strong> and <strong>doesn&#39;t scale</strong>.</p>
+<p>And we can avoid specificity by using very strict naming conventions. For example, <a href="http://getbem.com/">BEM</a> (short for Block Element Modifier) uses specific classnames for everything and nothing else.</p>
+</div></section><section class="slide" data-pos="4-8-12">
+<span class="pos">4-8-12</span>
+<div class="slidecontent"><p>And now for the <strong>most important commandment of all</strong>.</p>
+</div></section><section class="slide" data-pos="4-8-13">
+<span class="pos">4-8-13</span>
+<div class="slidecontent"><p>Are you ready?</p>
+</div></section><section class="slide" data-pos="4-8-14">
+<span class="pos">4-8-14</span>
+<div class="slidecontent"><blockquote>
+<p>Thou must be patient!</p>
+</blockquote>
+<p>You now <strong>know the basic rules</strong>, but probably feel a <strong>whole lot of frustration</strong>.</p>
+<p>This is because <strong>I have taught you the grammar</strong>, but you still have to <strong>learn the vocabulary</strong>. To this, alas, there are <strong>no shortcuts</strong>.</p>
+</div></section>
+</section>
+<!--ENDSECTION8-->
+<!--STARTSECTION9--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 9/11</div>
+      <h3>Layout</h3>
+      <p>setting the table</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-9-1">
+<span class="pos">4-9-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>A first sniff on layout with CSS</p>
+</div></section><section class="slide" data-pos="4-9-2">
+<span class="pos">4-9-2</span>
+<div class="slidecontent"><p>Now we&#39;ll take our nose off the floor and start looking at the bigger picture. How do we <strong>lay things out</strong> in CSS?</p>
+</div></section><section class="slide" data-pos="4-9-3">
+<span class="pos">4-9-3</span>
+<div class="slidecontent"><p>To start our journey, let&#39;s look at a few different solutions to something that&#39;s really hard to do in CSS - <strong>centering stuff vertically</strong>!</p>
+</div></section><section class="slide" data-pos="4-9-4">
+<span class="pos">4-9-4</span>
+<div class="slidecontent"><div class="cssdemo">
+    <h4 class="title">Vertical centering</h4>
+    <div class="description">Demonstrating vertical centering techniques</div>
+    <pre class="htmlstructure"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;shell&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;piece&quot;</span>&gt;</span>Center me!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+    <div class="frames">
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+  <span class="hljs-attribute">display</span>: table;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+  <span class="hljs-attribute">display</span>: table-cell;
+  <span class="hljs-attribute">vertical-align</span>: middle;
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                            display: table;
+                            width: 100%;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                            display: table-cell;
+                            vertical-align: middle;
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">1/6:</span>
+                <p>Curiously, <code>vertical-align</code> is only respected inside <code>table-cell</code> elements. </p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">justify-content</span>: center;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">2/6:</span>
+                <p>can also use flex!</p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+  <span class="hljs-attribute">position</span>: relative;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(-50%);
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                            position: relative;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">3/6:</span>
+                <p>dwfer</p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">100px</span>;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+  <span class="hljs-attribute">display</span>: inline-block;
+  <span class="hljs-attribute">vertical-align</span>: middle;
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                            line-height: 100px;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">4/6:</span>
+                <p>exploiting that <code>vertical-align</code> positions <code>inline</code> items versus the <code>line-height</code>.</p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+  <span class="hljs-attribute">position</span>: relative;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+  <span class="hljs-attribute">display</span>: inline-block;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">40px</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">margin</span>: auto <span class="hljs-number">0</span>;
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                            position: relative;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                            display: inline-block;
+                            height: 40px;
+                            position: absolute;
+                            bottom: 0;
+                            top: 0;
+                            margin: auto 0;
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">5/6:</span>
+                <p>Will only work with set height on child.</p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+}
+<span class="hljs-selector-class">.shell</span><span class="hljs-selector-pseudo">:before</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">&#39; &#39;</span>;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">50%</span>;
+  <span class="hljs-attribute">margin-bottom</span>: -<span class="hljs-number">20px</span>;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+  <span class="hljs-attribute">display</span>: inline-block;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">40px</span>;
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                        }
+
+                        .shell:before {
+                            content: ' ';
+                            display: block;
+                            height: 50%;
+                            margin-bottom: -20px;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                            display: inline-block;
+                            height: 40px;
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">6/6:</span>
+                <p>also needs set child height</p>
+
+            </div>
+        </div>
+    </div>
+</div></div></section><section class="slide" data-pos="4-9-5">
+<span class="pos">4-9-5</span>
+<div class="slidecontent"><p>Centering stuff <strong>horisontally</strong> is easier, but still worth exploring:</p>
+</div></section><section class="slide" data-pos="4-9-6">
+<span class="pos">4-9-6</span>
+<div class="slidecontent"><div class="cssdemo">
+    <h4 class="title">Horisontal centering</h4>
+    <div class="description">Demonstrating horisontal centering techniques</div>
+    <pre class="htmlstructure"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;shell&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;piece&quot;</span>&gt;</span>Center me!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+    <div class="frames">
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+  <span class="hljs-attribute">text-align</span>: center;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+  <span class="hljs-attribute">display</span>: inline-block;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">150px</span>;
+  <span class="hljs-attribute">text-align</span>: left;
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                            text-align: center;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                            display: inline-block;
+                            width: 150px;
+                            text-align: left;
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">1/4:</span>
+                <p>Easiest is to make block text-centered blah</p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">150px</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                            width: 150px;
+                            margin: 0 auto;
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">2/4:</span>
+                <p>Can also do auto margins. Won&#39;t work without fixed width!</p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">justify-content</span>: center;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">150px</span>;
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                            width: 150px;
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">3/4:</span>
+                <p>Flex!</p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.shell</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#8799db</span>;
+  <span class="hljs-attribute">position</span>: relative;
+}
+<span class="hljs-selector-class">.piece</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#efef8f</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">150px</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateX</span>(-50%);
+}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .shell {
+                            height: 100px;
+                            background-color: #8799db;
+                            position: relative;
+                        }
+
+                        .piece {
+                            background-color: #efef8f;
+                            width: 150px;
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                    </style>
+                    <div>
+                        <div class="shell">
+                            <div class="piece">Center me!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">4/4:</span>
+                <p>Same absotrans as vert</p>
+
+            </div>
+        </div>
+    </div>
+</div></div></section><section class="slide" data-pos="4-9-7">
+<span class="pos">4-9-7</span>
+<div class="slidecontent"><p>We also need to discuss the concept of <strong>floats</strong>:</p>
+</div></section><section class="slide" data-pos="4-9-8">
+<span class="pos">4-9-8</span>
+<div class="slidecontent"><div class="cssdemo">
+    <h4 class="title">Float</h4>
+    <div class="description">Demonstrating float</div>
+    <pre class="htmlstructure"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;reactlogo&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;story&quot;</span>&gt;</span>The fox jumped over the little stream. This was quite the adventure, let me tell you! Omg omg omg foo<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+    <div class="frames">
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.reactlogo</span> {
+  <span class="hljs-attribute">display</span>: inline-block;
+}
+<span class="hljs-selector-class">.story</span> {}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .reactlogo {
+                            display: inline-block;
+                        }
+
+                        .story {}
+                    </style>
+                    <div>
+                        <div class="reactlogo"></div>
+                        <div class="story">The fox jumped over the little stream. This was quite the adventure, let me tell you! Omg omg omg foo</div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">1/3:</span>
+                <p>The logo is an inline block.</p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.reactlogo</span> {
+  <span class="hljs-attribute">display</span>: inline-block;
+  <span class="hljs-attribute">float</span>: left;
+}
+<span class="hljs-selector-class">.story</span> {}</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .reactlogo {
+                            display: inline-block;
+                            float: left;
+                        }
+
+                        .story {}
+                    </style>
+                    <div>
+                        <div class="reactlogo"></div>
+                        <div class="story">The fox jumped over the little stream. This was quite the adventure, let me tell you! Omg omg omg foo</div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">2/3:</span>
+                <p>Now note how all lines wrap around it!</p>
+
+            </div>
+        </div>
+        <div class="frame">
+            <div>
+                <pre class="css"><code><span class="hljs-selector-class">.reactlogo</span> {
+  <span class="hljs-attribute">display</span>: inline-block;
+  <span class="hljs-attribute">float</span>: left;
+}
+<span class="hljs-selector-class">.story</span> { <span class="hljs-attribute">clear</span>: left; }</code></pre>
+                <div class="render">
+                    <style type="text/css" scoped>
+                        .reactlogo {
+                            display: inline-block;
+                            float: left;
+                        }
+
+                        .story {
+                            clear: left;
+                        }
+                    </style>
+                    <div>
+                        <div class="reactlogo"></div>
+                        <div class="story">The fox jumped over the little stream. This was quite the adventure, let me tell you! Omg omg omg foo</div>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation">
+                <span class="framepos">3/3:</span>
+                <p>We can expressively clear our way below floats.</p>
+
+            </div>
+        </div>
+    </div>
+</div></div></section>
+</section>
+<!--ENDSECTION9-->
+<!--STARTSECTION10--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 10/11</div>
+      <h3>Flexbox</h3>
+      <p>solving the age-old riddle</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-10-1">
+<span class="pos">4-10-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Getting to know Flexbox</p>
+</div></section><section class="slide" data-pos="4-10-2">
+<span class="pos">4-10-2</span>
+<div class="slidecontent"><p>There are <strong>two common problems</strong> that are embarrasingly hard to solve using regular CSS:</p>
+<ul>
+<li><strong>centering things vertically</strong></li>
+<li>having <strong>columns of equal height</strong></li>
+</ul>
+<p>CSS3 finally brought us a remedy: <strong>Flexbox</strong>!</p>
+</div></section><section class="slide" data-pos="4-10-3">
+<span class="pos">4-10-3</span>
+<div class="slidecontent"><p>The basic idea is simple; in this <strong>new display mode</strong> you select...</p>
+<ul>
+<li>opt in to the <strong>new display mode</strong> (<code>display: flex</code>)</li>
+<li>choose <strong>vertical or horisontal direction</strong> (<code>flex-direction</code>)</li>
+<li>how the <strong>content should be aligned along the direction axis</strong> (<code>justify-content</code>)</li>
+<li>and also <strong>perpendicular to the direction axis</strong> (<code>align-items</code>)</li>
+</ul>
+</div></section><section class="slide" data-pos="4-10-4">
+<span class="pos">4-10-4</span>
+<div class="slidecontent"><p>There are <strong>some more flex properties</strong>, and also some <strong>for the children</strong> in a box, which gives you <strong>even more control</strong>.</p>
+</div></section><section class="slide" data-pos="4-10-5">
+<span class="pos">4-10-5</span>
+<div class="slidecontent"><p>This is <strong>hard to visualise from textual explanations</strong>, so try out an interactive tutorial here: <a href="http://blog.krawaller.se/flexboxdemo/">http://blog.krawaller.se/flexboxdemo/</a></p>
+<p>There are also <strong>two popular games</strong> that demonstrate the concept:</p>
+<ul>
+<li>Flexbox Froggy @ <a href="http://flexboxfroggy.com/">http://flexboxfroggy.com/</a></li>
+<li>Flexbox Defence @ <a href="http://www.flexboxdefense.com/">http://www.flexboxdefense.com/</a></li>
+</ul>
+</div></section><section class="slide" data-pos="4-10-6">
+<span class="pos">4-10-6</span>
+<div class="slidecontent"><p>Remember how CSS selectors were so good at what they did that they leaked over into JS? It is <strong>the same with flexbox</strong> - it turned out to be such an efficient way to lay out things that it is <strong>used in many frameworks</strong>, most noteably by <strong>React Native</strong>.</p>
+</div></section>
+</section>
+<!--ENDSECTION10-->
+<!--STARTSECTION11--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 11/11</div>
+      <h3>Exercise - Faux columns</h3>
+      <p>The holy grail</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="4-11-1">
+<span class="pos">4-11-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Trying out Flexbox ourselves</p>
+</div></section><section class="slide" data-pos="4-11-2">
+<span class="pos">4-11-2</span>
+<div class="slidecontent"><p>We mentioned <strong>columns of equal height</strong> before:</p>
+<p><img src="resources/images/fauxcols.png" alt=""></p>
+</div></section><section class="slide" data-pos="4-11-3">
+<span class="pos">4-11-3</span>
+<div class="slidecontent"><p>More specifically, we mean</p>
+<ul>
+<li>Two columns who <strong>both extend to the bottom of their parent</strong></li>
+<li>The <strong>longest column desides the height of the parent</strong></li>
+</ul>
+<p>As previously stated, this is <strong>very difficult with regular CSS</strong>.</p>
+</div></section><section class="slide" data-pos="4-11-4">
+<span class="pos">4-11-4</span>
+<div class="slidecontent"><p>But, <strong>rather easy with Flexbox</strong>, which is what I used to create the screenshot!</p>
+<p>And now, of course it is your turn to <strong>recreate the screenshot using HTML and CSS</strong>!</p>
+</div></section><section class="slide" data-pos="4-11-5">
+<span class="pos">4-11-5</span>
+<div class="slidecontent"><p>Some pointers;</p>
+<ul>
+<li>I got the <strong>text</strong> from <a href="http://baconipsum.com/">http://baconipsum.com/</a></li>
+<li>The <strong>structure</strong> should just be a div with two divs inside</li>
+<li>You will <strong>need to play with <code>flex</code> on the children</strong></li>
+<li>Experiment yourself first, but if you get stuck then <strong>go googling</strong>!</li>
+</ul>
+</div></section><section class="slide challenge" data-pos="4-11-6">
+<span class="pos">4-11-6</span>
+<div class="slidecontent"><p><strong>Challenge</strong>: If you&#39;re really serious about your webdev chops, find a way to <strong>steal my exact colours</strong>!</p>
+</div></section>
+</section>
+<!--ENDSECTION11--><!--ENDCHAPTERCONTENT-->
+        
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var basehref = window.location.href.replace(/chapter\d.*?$/,'')
+
+      document.addEventListener("keydown",function(e){
+        var code = e.which || e.keyCode;
+        if (code===13){
+          window.location.href = basehref+"index.html?from="+(4-1);
+        } else if (code >= 49 && code <= 11+48) {
+          window.location.hash = "#/" + (code-48+1+0);
+        }
+        if (4 < 11) {
+          if (code===99){ // the letter C for next Chapter
+            window.location.href = basehref+"chapter"+(4+1)+".html"
+          }
+        }
+      });
+    </script>
+    <script src="mc2/scripts/head.js" type="text/javascript"></script>
+    <script src="mc2/scripts/reveal.js" type="text/javascript"></script>
+    <script src="mc2/scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    showNotes: false,
+    transition: 'slide',
+    dependencies: [
+      { src: 'mc2/scripts/plugin/notes/notes.js', async: true }
+    ]
+  })
+
+    window.onload = function(){
+
+      var links = document.querySelectorAll("a.link");
+      for(var i=0;i<links.length;i++){
+        var link = links[i];
+        link.innerHTML = link.innerHTML.replace(/ /g,'&nbsp;')
+      }
+      var posElem = document.getElementById('pos')
+      function updateReference(){
+        setTimeout(function(){
+          var currentpos = document.querySelector('section.present[data-pos]')
+          if (currentpos){
+            posElem.innerHTML = currentpos.getAttribute('data-pos')
+          } else {
+            posElem.innerHTML = ''
+          }
+          if (document.querySelector('.present.chaptertitle')){
+            document.body.classList.add('atchaptertitle');
+          } else {
+            document.body.classList.remove('atchaptertitle');
+          }
+        },10)
+      }
+
+      window.addEventListener("hashchange",updateReference);
+
+      updateReference();
+    };
+
+    </script>
+    <!--STARTCOURSESPECIFICSCRIPTS--><script type="text/javascript" src="scripts/cssdemo.js"></script>
+<script type="text/javascript" src="scripts/scoped_polyfill.js"></script><!--ENDCOURSESPECIFICSCRIPTS-->
+  </body>
+</html>

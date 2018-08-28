@@ -1,0 +1,30 @@
+digraph {
+  rankdir = LR
+  bgcolor = transparent
+
+  important -> inline -> styles [style=dashed]
+
+  styles -> inherit -> defaults
+
+  important [label="rule with\n!important",style=dashed]
+  inline [style=dashed]
+  defaults [label="browser\ndefaults"]
+
+  inline -> inlinefoo [dir=none,style=dashed]
+  important -> importantfoo [dir=none,style=dashed]
+  styles -> stylesfoo [dir=none]
+  inherit -> inheritfoo [dir=none]
+  defaults -> defaultsfoo [dir=none]
+
+  inlinefoo [shape=box,label="Trumps everything.\nBe careful!",style=dashed]
+  importantfoo [shape=box,label="Considered a hack.\nUse as last resort",style=dashed]
+  stylesfoo [shape=box,label="Sorted first by\nspecificity,\nthen by order"]
+  inheritfoo [shape=box,label="Some styles are\ninherited to children"]
+  defaultsfoo [shape=box,label="Often reset\nso we have\ntotal control"]
+
+  {rank=same;inline,inlinefoo}
+  {rank=same;important,importantfoo}
+  {rank=same;styles,stylesfoo}
+  {rank=same;inherit,inheritfoo}
+  {rank=same;defaults,defaultsfoo}
+}

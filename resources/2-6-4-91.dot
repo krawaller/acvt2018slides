@@ -1,0 +1,12 @@
+digraph {
+  rankdir = TD
+  bgcolor = transparent
+  html -> head
+  html -> body
+
+  head -> metadata [dir=none]
+  body -> content [dir=none]
+
+  metadata [shape=box,label="metadata"]
+  content [shape=box]
+}

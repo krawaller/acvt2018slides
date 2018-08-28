@@ -1,0 +1,12 @@
+digraph {
+  rankdir = LR
+  bgcolor = transparent
+  data:n -> encoder:w
+  encoder:e -> description:n
+  description:s -> parser:e
+  parser:w -> data:s
+  encoder, parser [shape=box]
+  encoder -> bogus -> parser [color=transparent]
+  bogus [color=transparent label=""]
+  {rank=same; encoder, parser, bogus}
+}

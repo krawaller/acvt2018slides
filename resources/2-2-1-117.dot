@@ -1,0 +1,7 @@
+digraph {
+  rankdir=LR
+  bgcolor=transparent
+  data -> format -> XML -> HTML
+  data [label="nested\ndata"]
+  format [penwidth=3]
+}

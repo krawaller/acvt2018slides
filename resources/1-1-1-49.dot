@@ -1,0 +1,29 @@
+digraph {
+  rankdir = LR
+  bgcolor = transparent
+
+  Carl [label="Carl\nMäsak"]
+
+  books -> Carl
+  beer -> Carl
+  music -> Carl
+
+  Carl -> teacher
+  Carl -> programmer
+
+  teacher -> Edument
+  programmer -> Edument
+
+  JS [label="Perl 6, Perl 5, Java, Python, JavaScript, TypeScript"]
+
+  programmer -> JS [dir=none]
+  teacher -> subs [dir=none]
+
+  JS,subs [shape=box]
+
+  subs [label="math\nprogramming"]
+
+  {rank=same;programmer,JS}
+  {rank=same;teacher,subs}
+
+}

@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>The DOM</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="icon" type="image/x-icon" href="mc2/images/favicon.ico">
+
+    <link rel="stylesheet" href="mc2/styles/reveal.css">
+    <link rel="stylesheet" href="mc2/styles/theme.css" id="theme">
+    <link rel="stylesheet" href="mc2/styles/code.css">
+    <!--STARTCOURSESPECIFICSTYLES--><link rel="stylesheet" href="styles/cssdemo.css">
+<link rel="stylesheet" href="styles/sectiontypes.css">
+<link rel="stylesheet" href="styles/style.css"><!--ENDCOURSESPECIFICSTYLES-->
+
+    
+  </head>
+
+  <body>
+    <div id="pos"></div>
+    <div class="reveal">
+      <div class="slides">
+        <section class="slide chaptertitle">
+          <div class="slidecontent">
+            <div class="chapternumber"> chapter 6 of 11 </div>
+            <h1>The DOM</h1>
+            <span>JS and HTML:s bastard child</span>
+          </div>
+        </section>
+        
+        <!--STARTSECTIONINDEX--><section class="slide sectionlist">
+  <div class="slidecontent">
+    <h3>Sections in this chapter</h3>
+    <ol>
+    <li><a href="#/2">Introducing&nbsp;the&nbsp;DOM</a></li>
+<li><a href="#/3">Manipulating&nbsp;the&nbsp;DOM</a></li>
+<li><a href="#/4">Catching&nbsp;DOM&nbsp;events</a></li>
+<li><a href="#/5">Exercise&nbsp;&#8209;&nbsp;Guess&nbsp;again!</a></li>
+<li><a href="#/6">Architecture</a></li>
+<li><a href="#/7">Exercise&nbsp;&#8209;&nbsp;Guess&nbsp;even&nbsp;more!</a></li>
+    </ol>
+  </div>
+</section>
+<!--ENDSECTIONINDEX-->
+        <!--STARTCHAPTERCONTENT--><!--STARTSECTION1--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 1/6</div>
+      <h3>Introducing the DOM</h3>
+      <p>DOM DOM DOM!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="6-1-1">
+<span class="pos">6-1-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>Understanding what the DOM is</p>
+</div></section><section class="slide" data-pos="6-1-2">
+<span class="pos">6-1-2</span>
+<div class="slidecontent"><p>In a nutshell: <strong>the DOM is the bridge between JS and HTML</strong>:</p>
+<p><img src="resources/6-1-2-65.svg" alt="dot"></p>
+</div></section><section class="slide" data-pos="6-1-3">
+<span class="pos">6-1-3</span>
+<div class="slidecontent"><p>Another way of putting it: <strong>the HTML is the recipe</strong> and <strong>the DOM is the dish</strong>.</p>
+<p>The DOM is the <strong>browser&#39;s internal representation of the HTML</strong>.</p>
+</div></section><section class="slide" data-pos="6-1-4">
+<span class="pos">6-1-4</span>
+<div class="slidecontent"><p>We&#39;ve <strong>already seen the DOM in the Elements tab in the dev tools</strong>, and noted it looks an awful lot like our HTML.</p>
+<p>But that&#39;s just because <strong>we haven&#39;t involved JavaScript</strong> yet. JavaScript can manipulate the DOM. <strong>The DOM is not constant</strong>.</p>
+</div></section><section class="slide" data-pos="6-1-5">
+<span class="pos">6-1-5</span>
+<div class="slidecontent"><p>We <strong>interact with the DOM</strong> from JS space through the <strong>global <code>document</code> variable</strong>.</p>
+<p>It has a gajillion methods for interacting with the rendered DOM. Try this in the console!</p>
+<pre><code><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">document</span>);
+</code></pre></div></section><section class="slide" data-pos="6-1-6">
+<span class="pos">6-1-6</span>
+<div class="slidecontent"><p>Remember - the DOM is not JavaScript, it just happened to be <strong>implemented in JS</strong>.</p>
+<p>So right now you&#39;re going to start to learn the DOM!</p>
+</div></section><section class="slide question" data-pos="6-1-7">
+<span class="pos">6-1-7</span>
+<div class="slidecontent">
+<p>All those words, but we still don&#39;t know <strong>what DOM stands for</strong>?</p>
+</div></section><section class="slide answer" data-pos="6-1-8">
+<span class="pos">6-1-8</span>
+<div class="slidecontent">
+<p>Sorry! The <strong>D</strong>ocument <strong>O</strong>bject <strong>M</strong>odel.</p>
+</div></section><section class="slide" data-pos="6-1-9">
+<span class="pos">6-1-9</span>
+<div class="slidecontent"><p>As a final PS - there are also a bunch of DOM-related methods on the global <strong><code>window</code></strong> object...</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">window</span>)
+</code></pre>
+<p>...but we&#39;ll mostly be working on <code>document</code>.</p>
+</div></section>
+</section>
+<!--ENDSECTION1-->
+<!--STARTSECTION2--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 2/6</div>
+      <h3>Manipulating the DOM</h3>
+      <p>Throwing the lasso</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="6-2-1">
+<span class="pos">6-2-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>How to walk the tree, and how to manipulate the document</p>
+</div></section><section class="slide list" data-pos="6-2-2">
+<span class="pos">6-2-2</span>
+<div class="slidecontent">
+<p>The plan is to learn...</p>
+<ul>
+<li><span>a</span>how to get references to DOM nodes</li>
+<li><span>b</span>how to manipulate a DOM node</li>
+<li><span>c</span>how to create DOM nodes</li>
+</ul>
+</div></section><section class="slide num numA" data-pos="6-2-3">
+<span class="pos">6-2-3</span>
+<div class="slidecontent">
+<p>We can <strong>get a reference to a DOM node</strong> in a bunch of different ways via the <code>document</code> variable.</p>
+<p>Some methods return <strong>a single element</strong>:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> node = <span class="hljs-built_in">document</span>.body;
+<span class="hljs-keyword">let</span> node = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"someId"</span>);
+<span class="hljs-keyword">let</span> node = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"div &gt; p:first-child"</span>);
+</code></pre>
+<p>That last example gives us the <em>first</em> element to satisfy the CSS selector.</p>
+</div></section><section class="slide" data-pos="6-2-4">
+<span class="pos">6-2-4</span>
+<div class="slidecontent"><p>..while others give us a <strong>list of matching nodes</strong>:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> nodes = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">"div"</span>);
+<span class="hljs-keyword">let</span> nodes = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">"someClass"</span>);
+<span class="hljs-keyword">let</span> nodes = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">"div &gt; p:first-child"</span>);
+</code></pre>
+</div></section><section class="slide" data-pos="6-2-5">
+<span class="pos">6-2-5</span>
+<div class="slidecontent"><p>From a node reference we can access the <strong>element above that element</strong>...</p>
+<pre><code><span class="hljs-keyword">node</span>.<span class="hljs-title">parent</span>
+</code></pre><p>...or the <strong>elements below</strong>:</p>
+<pre><code><span class="hljs-keyword">node</span>.<span class="hljs-title">children</span>
+</code></pre></div></section><section class="slide num numB" data-pos="6-2-6">
+<span class="pos">6-2-6</span>
+<div class="slidecontent">
+<p>Once we have a node reference there&#39;s a <strong>huge number of things</strong> we can do with it! The DOM API is enormous.</p>
+<p>But let&#39;s start learning the <strong>most useful things</strong>!</p>
+</div></section><section class="slide" data-pos="6-2-7">
+<span class="pos">6-2-7</span>
+<div class="slidecontent"><p>We can <strong>add a class</strong>...</p>
+<pre><code class="lang-javascript">node.classList.add(<span class="hljs-string">"someClass"</span>);
+</code></pre>
+<p>...or <strong>remove it</strong>...</p>
+<pre><code class="lang-javascript">node.classList.remove(<span class="hljs-string">"someClass"</span>);
+</code></pre>
+<p>...or <strong>test if it has a certain class</strong>:</p>
+<pre><code class="lang-javascript">node.classList.contains(<span class="hljs-string">"someClass"</span>) <span class="hljs-comment">// true or false</span>
+</code></pre>
+</div></section><section class="slide" data-pos="6-2-8">
+<span class="pos">6-2-8</span>
+<div class="slidecontent"><p>We can <strong>change the text content of a node</strong>...</p>
+<pre><code class="lang-javascript">node.innerText = <span class="hljs-string">"Hello world!"</span>;
+</code></pre>
+<p>...or <strong>HTML content</strong>:</p>
+<pre><code class="lang-javascript">node.innerHTML = <span class="hljs-string">"&lt;strong&gt;Hello world!&lt;/strong&gt;"</span>;
+</code></pre>
+<p>In both cases we <strong>erase eventual previous content</strong>.</p>
+</div></section><section class="slide" data-pos="6-2-9">
+<span class="pos">6-2-9</span>
+<div class="slidecontent"><p>What about <strong>attributes</strong> on elements?</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en-US"</span>&gt;</span>
+</code></pre>
+<p>We can <strong>query them</strong>...</p>
+<pre><code class="lang-javascript">node.getAttribute(<span class="hljs-string">"lang"</span>); <span class="hljs-comment">// "en-US"</span>
+</code></pre>
+<p>...and <strong>set them</strong>:</p>
+<pre><code class="lang-javascript">node.setAttribute(<span class="hljs-string">"lang"</span>,<span class="hljs-string">"en-US"</span>);
+</code></pre>
+</div></section><section class="slide num numC" data-pos="6-2-10">
+<span class="pos">6-2-10</span>
+<div class="slidecontent">
+<p>Finally, let&#39;s see how we <strong>create DOM nodes</strong>!</p>
+<pre><code><span class="hljs-attribute">let newNode</span> = document.createElement(<span class="hljs-string">"div"</span>);
+</code></pre><p>Just instantiating a node like this doesn&#39;t do anything - it <strong>isn&#39;t connected to the document</strong>.</p>
+</div></section><section class="slide" data-pos="6-2-11">
+<span class="pos">6-2-11</span>
+<div class="slidecontent"><p>In order to accomplish that we need to <strong>append</strong> or <strong>prepend</strong> the node to a parent node:</p>
+<pre><code>let existingNode = document.getElementById(<span class="hljs-string">"someId"</span>)<span class="hljs-comment">;</span>
+existingNode.appendChild(newNode)<span class="hljs-comment">;</span>
+</code></pre><p>There is of course a corresponding <code>.prependChild</code> too.</p>
+</div></section><section class="slide" data-pos="6-2-12">
+<span class="pos">6-2-12</span>
+<div class="slidecontent"><p>However, normally it is <strong>easier to replace the HTML</strong>. So instead of doing this...</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> newNode = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"li"</span>);
+newNode.setAttribute(<span class="hljs-string">"id"</span>,newUserId);
+<span class="hljs-keyword">let</span> image = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"img"</span>);
+image.setAttribute(<span class="hljs-string">"src"</span>,newUserImageUrl);
+newNode.appendChild(image);
+<span class="hljs-keyword">let</span> list = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"userList"</span>);
+list.appendChild(newNode);
+</code></pre>
+</div></section><section class="slide" data-pos="6-2-13">
+<span class="pos">6-2-13</span>
+<div class="slidecontent"><p>...we can do this:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> list = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"userList"</span>);
+list.innerHTML = list.innerHTML + <span class="hljs-string">`
+  &lt;li id="<span class="hljs-subst">${newUserId}</span>"&gt;
+    &lt;img src="<span class="hljs-subst">${newUserImageUrl}</span>"&gt;
+  &lt;/li&gt;
+`</span>;
+</code></pre>
+</div></section><section class="slide question" data-pos="6-2-14">
+<span class="pos">6-2-14</span>
+<div class="slidecontent">
+<p>Wait, what was that template thingy?</p>
+</div></section><section class="slide answer" data-pos="6-2-15">
+<span class="pos">6-2-15</span>
+<div class="slidecontent">
+<p>That was an ES6 <strong>template literal</strong>. It is basically a <strong>multiline string</strong> with some <strong>interpolation capabilities</strong>.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> poem = <span class="hljs-string">`
+Then <span class="hljs-subst">${heroName}</span> married the prince
+and lived happily forever after!
+`</span>;
+</code></pre>
+</div></section><section class="slide" data-pos="6-2-16">
+<span class="pos">6-2-16</span>
+<div class="slidecontent"><p>In old code, that would be equivalent to:</p>
+<pre><code><span class="hljs-attribute">let poem</span> =
+  <span class="hljs-string">"Then "</span> + heroName + <span class="hljs-string">" married the prince\nand lived happily ever after"</span>;
+</code></pre></div></section>
+</section>
+<!--ENDSECTION2-->
+<!--STARTSECTION3--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 3/6</div>
+      <h3>Catching DOM events</h3>
+      <p>True interaction at last!</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="6-3-1">
+<span class="pos">6-3-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>How to catch events</p>
+</div></section><section class="slide" data-pos="6-3-2">
+<span class="pos">6-3-2</span>
+<div class="slidecontent"><p>With CSS, the only interaction we could offer was some animations using <code>:hover</code> and <code>:active</code>.</p>
+<p>But now is the time for some <strong>true user interaction</strong>!</p>
+</div></section><section class="slide list" data-pos="6-3-3">
+<span class="pos">6-3-3</span>
+<div class="slidecontent">
+<p>We need to learn...</p>
+<ul>
+<li><span>a</span>how to attch event handlers</li>
+<li><span>b</span>about the event object</li>
+</ul>
+</div></section><section class="slide num numA" data-pos="6-3-4">
+<span class="pos">6-3-4</span>
+<div class="slidecontent">
+<p>The DOM lets us <strong>add event listeners to elements</strong>.</p>
+<p>These are <strong>functions that will be called whenever that particular event happen</strong> on that element.</p>
+</div></section><section class="slide" data-pos="6-3-5">
+<span class="pos">6-3-5</span>
+<div class="slidecontent"><p>Say we <strong>have this button</strong> in our document:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doomsdaybtn"</span>&gt;</span>Don't click me!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<p>And a <strong>reference</strong> to the corresponding node:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> btn = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"doomsdaybtn"</span>);
+</code></pre>
+</div></section><section class="slide" data-pos="6-3-6">
+<span class="pos">6-3-6</span>
+<div class="slidecontent"><p>We now <strong>create a function to be used as an event listener</strong>...</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> listener = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  alert(<span class="hljs-string">"BOOM!"</span>);
+}
+</code></pre>
+</div></section><section class="slide" data-pos="6-3-7">
+<span class="pos">6-3-7</span>
+<div class="slidecontent"><p>...and <strong>attach it using the <code>addEventListener</code> method</strong> on the node:</p>
+<pre><code class="lang-javascript">btn.addEventListener(<span class="hljs-string">"click"</span>,listener);
+</code></pre>
+<p>Now <strong>when the user clicks the button, the event handler function will run</strong>!</p>
+</div></section><section class="slide question" data-pos="6-3-8">
+<span class="pos">6-3-8</span>
+<div class="slidecontent">
+<p>What is <strong>wrong</strong> with this code?</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> listener = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  alert(<span class="hljs-string">"BOOM!"</span>);
+}
+btn.addEventListener(<span class="hljs-string">"click"</span>, listener());
+</code></pre>
+</div></section><section class="slide answer" data-pos="6-3-9">
+<span class="pos">6-3-9</span>
+<div class="slidecontent">
+<p>It <strong>executes listener directly</strong>. The bomb would blow up immediately when the page loads, and after that clicks would have no effect.</p>
+</div></section><section class="slide" data-pos="6-3-10">
+<span class="pos">6-3-10</span>
+<div class="slidecontent"><p>If we&#39;re not reusing the event listener, it is common to <strong>define it in place</strong> as an anonymous function:</p>
+<pre><code class="lang-javascript">btn.addEventListener(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  alert(<span class="hljs-string">"BOOM!"</span>);
+});
+</code></pre>
+</div></section><section class="slide" data-pos="6-3-11">
+<span class="pos">6-3-11</span>
+<div class="slidecontent"><p>There is a <strong>full list of events</strong> at MDN:</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a></p>
+</div></section><section class="slide num numB" data-pos="6-3-12">
+<span class="pos">6-3-12</span>
+<div class="slidecontent">
+<p>The handler will be called with an <strong>event object</strong> that describes what just happened. These differ depending on what event we were listening to.</p>
+</div></section><section class="slide" data-pos="6-3-13">
+<span class="pos">6-3-13</span>
+<div class="slidecontent"><p>Here&#39;s an example:</p>
+<pre><code>inputFieldNode.addEventListener(<span class="hljs-string">"keyup"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span>{
+  <span class="hljs-keyword">if</span> (e.key === <span class="hljs-string">"Enter"</span> || e.keyCode === <span class="hljs-number">13</span>){
+    submitForm();
+  }
+});
+</code></pre></div></section><section class="slide" data-pos="6-3-14">
+<span class="pos">6-3-14</span>
+<div class="slidecontent"><p>Exactly <strong>what the event object contains</strong> will <strong>depend on what event was caught</strong>.</p>
+</div></section><section class="slide" data-pos="6-3-15">
+<span class="pos">6-3-15</span>
+<div class="slidecontent"><p>Something that&#39;s always there and often useful is the <strong><code>.target</code> property</strong>,
+which points to the element that caught the event:</p>
+<pre><code><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#myinputfield"</span>).addEventListener(<span class="hljs-string">"change"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"You typed:"</span>, e.target.value);
+});
+</code></pre><p>Here we&#39;re using the fact that <code>.value</code> on an input element is the current content.</p>
+</div></section>
+</section>
+<!--ENDSECTION3-->
+<!--STARTSECTION4--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 4/6</div>
+      <h3>Exercise - Guess again!</h3>
+      <p>First blood part II</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="6-4-1">
+<span class="pos">6-4-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Practicing the DOM!</p>
+</div></section><section class="slide" data-pos="6-4-2">
+<span class="pos">6-4-2</span>
+<div class="slidecontent"><p>Let&#39;s <strong>redo the numbers guessing game</strong> as an actual web app!</p>
+<p>You should again be <strong>working in teams</strong>.</p>
+</div></section><section class="slide" data-pos="6-4-3">
+<span class="pos">6-4-3</span>
+<div class="slidecontent"><p>Here&#39;s what we&#39;re going for:</p>
+<p><img src="resources/images/guessanim.gif" alt=""></p>
+<p>...although you&#39;re very free to do it better! :D</p>
+</div></section><section class="slide list" data-pos="6-4-4">
+<span class="pos">6-4-4</span>
+<div class="slidecontent">
+<p>Now, utilise your event handling skills to <strong>reimplement the guessing game</strong>! </p>
+<p>Here&#39;s the battle plan:</p>
+<ul>
+<li><span>a</span>create file structure</li>
+<li><span>b</span>add UI sections to the HTML</li>
+<li><span>c</span>create event handlers</li>
+<li><span>d</span>hook up event handlers</li>
+</ul>
+</div></section><section class="slide num numA" data-pos="6-4-5">
+<span class="pos">6-4-5</span>
+<div class="slidecontent">
+<p>First off, create a <strong>simple structure</strong> like this:</p>
+<p><img src="resources/images/guessagain.png" alt=""></p>
+</div></section><section class="slide" data-pos="6-4-6">
+<span class="pos">6-4-6</span>
+<div class="slidecontent"><p>In other words, we&#39;ll have:</p>
+<ul>
+<li>a simple HTML file</li>
+<li>a file <code>code.js</code> with your logic in it</li>
+<li>a CSS file for our styles</li>
+</ul>
+</div></section><section class="slide" data-pos="6-4-7">
+<span class="pos">6-4-7</span>
+<div class="slidecontent"><p>The HTML file can start out like this:</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Guess again! :D<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"style.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span> ...here we'll add stuff... <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"code.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide num numB" data-pos="6-4-8">
+<span class="pos">6-4-8</span>
+<div class="slidecontent">
+<p>We start by just <strong>adding some HTML for the UI sections</strong> we need. There are <strong>three of them</strong>:</p>
+<ul>
+<li>a <strong>feedback</strong> section which shows an information string to the user</li>
+<li>an <strong>enter guess section</strong> which has a field and a submission button</li>
+<li>a <strong>play again section</strong> which has a button that resets the game.</li>
+</ul>
+</div></section><section class="slide" data-pos="6-4-9">
+<span class="pos">6-4-9</span>
+<div class="slidecontent"><p>Of course, the last two will <strong>never be visible at the same time</strong>, but we&#39;ll deal with that later.</p>
+<p>We put both of them into the HTML!</p>
+</div></section><section class="slide" data-pos="6-4-10">
+<span class="pos">6-4-10</span>
+<div class="slidecontent"><p>The enter guess section needs a <strong>text field</strong> - that&#39;s done via an <code>&lt;input&gt;</code> element!</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"someid"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Skriv in din gissning"</span>/&gt;</span>
+</code></pre>
+<p>The <code>placeholder</code> attribute shows the <strong>grey help text</strong> that disappears once the user starts typing.</p>
+</div></section><section class="slide" data-pos="6-4-11">
+<span class="pos">6-4-11</span>
+<div class="slidecontent"><p>And here&#39;s how we create a <strong>button</strong>:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"anotherid"</span>&gt;</span>Submit guess<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+</div></section><section class="slide num numC" data-pos="6-4-12">
+<span class="pos">6-4-12</span>
+<div class="slidecontent">
+<p>Now for the <strong>event handlers</strong>! There are just two of them:</p>
+<ul>
+<li>an <strong><code>enterGuess</code></strong> handler</li>
+<li>a <strong><code>resetGame</code></strong> handler</li>
+</ul>
+</div></section><section class="slide" data-pos="6-4-13">
+<span class="pos">6-4-13</span>
+<div class="slidecontent"><p>These two functions will together hold your game logic! </p>
+<p>I&#39;ll give you a couple of <strong>patterns that you&#39;ll need</strong>:</p>
+</div></section><section class="slide" data-pos="6-4-14">
+<span class="pos">6-4-14</span>
+<div class="slidecontent"><p>How do we <strong>show and hide elements</strong>? A good way is via CSS classes!</p>
+<p>First, <strong>add this CSS rule</strong> in the style file:</p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.hidden</span> {
+  <span class="hljs-attribute">display</span>: none;
+}
+</code></pre>
+</div></section><section class="slide" data-pos="6-4-15">
+<span class="pos">6-4-15</span>
+<div class="slidecontent"><p>And inside the handlers we can then do this:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> UIelem = <span class="hljs-built_in">document</span>.querySelector(someSelectorThatGetsMeWhatIWant);
+UIelem.classList.add(<span class="hljs-string">"hidden"</span>); <span class="hljs-comment">// hides the element</span>
+</code></pre>
+<p>To show an element, use <code>.remove(&quot;hidden&quot;)</code> instead.</p>
+</div></section><section class="slide" data-pos="6-4-16">
+<span class="pos">6-4-16</span>
+<div class="slidecontent"><p>We also need to <strong>get the value of the input field</strong>. Here&#39;s how:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> field = <span class="hljs-built_in">document</span>.querySelector(someSelectorThatTargetsTheField);
+
+<span class="hljs-keyword">let</span> value = field.value;
+</code></pre>
+</div></section><section class="slide num numD" data-pos="6-4-17">
+<span class="pos">6-4-17</span>
+<div class="slidecontent">
+<p>Finally we have to <strong>register our functions as event handlers</strong>!</p>
+<p>Specifically,</p>
+<ul>
+<li><strong><code>enterGuess</code></strong> should run when we click the guess <strong>submission button</strong></li>
+<li><strong><code>resetGame</code></strong> should run when...<ul>
+<li>user clicks <strong>reset button</strong></li>
+<li>when the <strong>document loads</strong></li>
+</ul>
+</li>
+</ul>
+</div></section><section class="slide question" data-pos="6-4-18">
+<span class="pos">6-4-18</span>
+<div class="slidecontent">
+<p>Wait - we now how to catch clicks, but how do we <strong>execute code on document load</strong>?</p>
+</div></section><section class="slide answer" data-pos="6-4-19">
+<span class="pos">6-4-19</span>
+<div class="slidecontent">
+<p>There are two ways. We can <strong>register a <code>load</code> listener</strong>...</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">"load"</span>, myHandler);
+</code></pre>
+</div></section><section class="slide" data-pos="6-4-20">
+<span class="pos">6-4-20</span>
+<div class="slidecontent"><p>...or simply <strong>execute the handler</strong> at the bottom of our script!</p>
+<pre><code class="lang-javascript">myHandler();
+</code></pre>
+<p>Exactly what I want depends on the circumstances.</p>
+</div></section><section class="slide" data-pos="6-4-21">
+<span class="pos">6-4-21</span>
+<div class="slidecontent"><p>And, that&#39;s it! With these puzzle pieces you should be able to <strong>recreate the guessing game as a web app</strong>.</p>
+<p>Good luck! :)</p>
+</div></section><section class="slide" data-pos="6-4-22">
+<span class="pos">6-4-22</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>The guessing game runs correctly in the browser</li>
+<li>We&#39;re not using alert, confirm or prompt!</li>
+</ul>
+</div></section><section class="slide challenge" data-pos="6-4-23">
+<span class="pos">6-4-23</span>
+<div class="slidecontent">
+<p>Increase usability by setting <strong>focus</strong> on the correct things, so that the user doesn&#39;t have to put the marker in the input.</p>
+<p>We do this by calling the <code>.focus</code> method on a reference to the input or button node!</p>
+</div></section><section class="slide challenge" data-pos="6-4-24">
+<span class="pos">6-4-24</span>
+<div class="slidecontent">
+<p>Increase usability by also <strong>submitting a guess upon hitting Enter</strong> in the field!</p>
+<p>You&#39;ll need to <strong>listen to <code>keyup</code></strong> on the input element, and see if <code>.key</code> is <code>&#39;Enter&#39;</code> in the event object.</p>
+</div></section><section class="slide challenge" data-pos="6-4-25">
+<span class="pos">6-4-25</span>
+<div class="slidecontent">
+<p>Give good feedback to the user when she enters an invalid guess.</p>
+</div></section><section class="slide challenge" data-pos="6-4-26">
+<span class="pos">6-4-26</span>
+<div class="slidecontent">
+<p>Clean up your enterGuess function by extracting out some stuff! Perhaps you could have...</p>
+<ul>
+<li>a helper function for updating the user message</li>
+<li>a helper function for validating the message</li>
+</ul>
+</div></section><section class="slide challenge" data-pos="6-4-27">
+<span class="pos">6-4-27</span>
+<div class="slidecontent">
+<p>Extra challenge: Make it pretty! :)</p>
+</div></section>
+</section>
+<!--ENDSECTION4-->
+<!--STARTSECTION5--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 5/6</div>
+      <h3>Architecture</h3>
+      <p>Untangling our code</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="6-5-1">
+<span class="pos">6-5-1</span>
+<div class="slidecontent"><div class="learn"></div>
+
+<p>How to write code that will be easy to work with even at scale</p>
+</div></section><section class="slide" data-pos="6-5-2">
+<span class="pos">6-5-2</span>
+<div class="slidecontent"><p>The primary abstraction in JavaScript is the <strong>function</strong>.</p>
+<p>As you&#39;ve already seen, your <strong>code will consist of a bunch of functions</strong>, that then use each other or are used as event handlers.</p>
+</div></section><section class="slide" data-pos="6-5-3">
+<span class="pos">6-5-3</span>
+<div class="slidecontent"><p>In functional programming (which JavaScript leans towards), there is a concept called <strong>pure functions</strong>.</p>
+<p>They are functions that...</p>
+<ul>
+<li>don&#39;t have any side effects</li>
+<li>only references parameters and inner variables</li>
+<li>just returns a value computed by looking at the parameters</li>
+</ul>
+</div></section><section class="slide" data-pos="6-5-4">
+<span class="pos">6-5-4</span>
+<div class="slidecontent"><p>Here&#39;s a stupidly simple example:</p>
+<pre><code><span class="hljs-keyword">function</span> <span class="hljs-title">adder</span>(a, b){
+  <span class="hljs-keyword">return</span> <span class="hljs-type">a</span> + b;
+}
+</code></pre></div></section><section class="slide question" data-pos="6-5-5">
+<span class="pos">6-5-5</span>
+<div class="slidecontent">
+<p>So what&#39;s the big deal about imposing a bunch of limitations like that?</p>
+</div></section><section class="slide answer" data-pos="6-5-6">
+<span class="pos">6-5-6</span>
+<div class="slidecontent">
+<p>Well! Since pure functions are...</p>
+<ul>
+<li>very easy to explain</li>
+<li>very easy to understand</li>
+<li>very easy to write unit tests for</li>
+<li>very portable (move them to a different file/project and they still work)</li>
+</ul>
+</div></section><section class="slide" data-pos="6-5-7">
+<span class="pos">6-5-7</span>
+<div class="slidecontent"><p>...the bigger the portion of our codebase that is pure functions, the better it is!</p>
+<p>Because then that whole portion of the codebase gains the same characteristiscs:</p>
+<ul>
+<li>very easy to explain</li>
+<li>very easy to understand</li>
+<li>very easy to write unit tests for</li>
+<li>very portable</li>
+</ul>
+</div></section><section class="slide question" data-pos="6-5-8">
+<span class="pos">6-5-8</span>
+<div class="slidecontent">
+<p>Fine. But, surely we cannot have just pure functions?</p>
+</div></section><section class="slide answer" data-pos="6-5-9">
+<span class="pos">6-5-9</span>
+<div class="slidecontent">
+<p>Correct. We likely need to do some mutation.</p>
+<p>But the idea is to have as <strong>large a portion as possible</strong> consisting of pure functions, and isolate the rest of the code to as few places as possible.</p>
+</div></section><section class="slide" data-pos="6-5-10">
+<span class="pos">6-5-10</span>
+<div class="slidecontent"><p>Here&#39;s what to strive for: Your code should consist of...</p>
+<ul>
+<li>a bunch of <strong>pure functions</strong></li>
+<li>with some <strong>side-effecty setup</strong> at the end</li>
+</ul>
+</div></section><section class="slide question" data-pos="6-5-11">
+<span class="pos">6-5-11</span>
+<div class="slidecontent">
+<p>Wait. The title for this section was &quot;Architecture&quot;.</p>
+<p>While striving for pure functions seem like good advice, <strong>how does that help me organise my code</strong>?</p>
+</div></section><section class="slide answer" data-pos="6-5-12">
+<span class="pos">6-5-12</span>
+<div class="slidecontent">
+<p>Implicitly! :)</p>
+<p><img src="resources/6-5-12-29.svg" alt="dot"></p>
+<p>Pure functions means easy to write unit tests for, and easy to test means well organised.</p>
+</div></section>
+</section>
+<!--ENDSECTION5-->
+<!--STARTSECTION6--><section>
+  <section class="slide sectiontitle">
+    <div class="slidecontent">
+      <div class='sectioncount'>Section 6/6</div>
+      <h3>Exercise - Guess even more!</h3>
+      <p>First blood part III</p>
+    </div>
+  </section>
+  <section class="slide" data-pos="6-6-1">
+<span class="pos">6-6-1</span>
+<div class="slidecontent"><div class="goal"></div>
+
+<p>Trying our hand at architecture</p>
+</div></section><section class="slide" data-pos="6-6-2">
+<span class="pos">6-6-2</span>
+<div class="slidecontent"><p>You guessed it - you&#39;ll now try to <strong>refactor your guessing game</strong> and make as much of it pure as possible!</p>
+<p>Working in teams is highly recommended, this is a very discussion-centric exercise.</p>
+</div></section><section class="slide list" data-pos="6-6-3">
+<span class="pos">6-6-3</span>
+<div class="slidecontent">
+<p>Here&#39;s the battle plan:</p>
+<ul>
+<li><span>a</span>consolidate state</li>
+<li><span>b</span>consolidate ui variables</li>
+<li><span>c</span>refactor functions</li>
+</ul>
+<p>You don&#39;t have to follow my suggestions to the letter if you don&#39;t want to.</p>
+</div></section><section class="slide num numA" data-pos="6-6-4">
+<span class="pos">6-6-4</span>
+<div class="slidecontent">
+<p>Right now we likely have state in a lot of places.</p>
+<ul>
+<li>a <code>remainingGuesses</code> variable</li>
+<li>a <code>correctAnswer</code> variable</li>
+<li>contents in the messaging element</li>
+<li>one of the &quot;panels&quot; have a <code>.hidden</code> class</li>
+</ul>
+</div></section><section class="slide" data-pos="6-6-5">
+<span class="pos">6-6-5</span>
+<div class="slidecontent"><p>We can represent all this as a <strong>state object</strong> instead. Something like this:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> appState = {
+  <span class="hljs-attr">correct</span>: <span class="hljs-number">8</span>,
+  <span class="hljs-attr">remaining</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">feedback</span>: <span class="hljs-string">"Wrong! 2 guesses remaining"</span>,
+  <span class="hljs-attr">playing</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// if true show enterGuess panel, otherwise resetPanel</span>
+}
+</code></pre>
+</div></section><section class="slide" data-pos="6-6-6">
+<span class="pos">6-6-6</span>
+<div class="slidecontent"><p>With all state in an object, we&#39;ll have an <strong>easier time purifying our code</strong>!</p>
+<p>The biggest win here is moving the message content and shown panel from the DOM to JS.</p>
+</div></section><section class="slide num numB" data-pos="6-6-7">
+<span class="pos">6-6-7</span>
+<div class="slidecontent">
+<p>Next, we&#39;d probably do well to consolidate our UI into an object.</p>
+<p>If you we&#39;re forward thinking in the last exercise, you might have already taken steps in that direction!</p>
+</div></section><section class="slide" data-pos="6-6-8">
+<span class="pos">6-6-8</span>
+<div class="slidecontent"><p>Step one is to create variables for each of the elements we&#39;re using.</p>
+<p>Instead of this...</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">enterGuess</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">let</span> input = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"guessField"</span>);
+  <span class="hljs-keyword">let</span> guess = input.value;
+</code></pre>
+</div></section><section class="slide" data-pos="6-6-9">
+<span class="pos">6-6-9</span>
+<div class="slidecontent"><p>...we do this:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> input = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"guessField"</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">enterGuess</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">let</span> guess = input.value;
+</code></pre>
+<p>This also increases perfomance, since we&#39;re not reselecting the same element over and over.</p>
+</div></section><section class="slide" data-pos="6-6-10">
+<span class="pos">6-6-10</span>
+<div class="slidecontent"><p>Now we&#39;ll end up with <strong>many such variables</strong>...</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> input = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"guessField"</span>);
+<span class="hljs-keyword">let</span> message = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"messageOutput"</span>);
+<span class="hljs-keyword">let</span> submitBtn = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"submitter"</span>);
+</code></pre>
+</div></section><section class="slide" data-pos="6-6-11">
+<span class="pos">6-6-11</span>
+<div class="slidecontent"><p>...but we can clean up by <strong>collecting them in an object</strong>...</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> ui = {
+  <span class="hljs-attr">input</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"guessField"</span>),
+  <span class="hljs-attr">message</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"messageOutput"</span>),
+  <span class="hljs-attr">submitBtn</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"submitter"</span>)
+};
+</code></pre>
+</div></section><section class="slide" data-pos="6-6-12">
+<span class="pos">6-6-12</span>
+<div class="slidecontent"><p>...which would be used like this:</p>
+<pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">enterGuess</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">let</span> guess = ui.input.value;
+</code></pre></div></section><section class="slide num numC" data-pos="6-6-13">
+<span class="pos">6-6-13</span>
+<div class="slidecontent">
+<p>Now for the most satisfying, and hardest, part - <strong>refactoring the functions</strong>!</p>
+</div></section><section class="slide" data-pos="6-6-14">
+<span class="pos">6-6-14</span>
+<div class="slidecontent"><p>Right now your <strong><code>enterGuess</code></strong> function likely looks something like this:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">enterGuess</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-comment">// code which uses UI and variables "correct" and "remaining",</span>
+  <span class="hljs-comment">// and mutates the variables and the DOM. It returns nothing.</span>
+}
+</code></pre>
+</div></section><section class="slide" data-pos="6-6-15">
+<span class="pos">6-6-15</span>
+<div class="slidecontent"><p>My suggestion is to refactor it to this:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">enterGuess</span>(<span class="hljs-params">currentState, newGuess</span>)</span>{
+  <span class="hljs-comment">// code which looks at current state and new guess,</span>
+  <span class="hljs-comment">// and calculates a new state and returns it</span>
+}
+</code></pre>
+</div></section><section class="slide question" data-pos="6-6-16">
+<span class="pos">6-6-16</span>
+<div class="slidecontent">
+<p>But, I&#39;m updating the DOM inside my enterGuess function! Surely I can&#39;t stop doing that?</p>
+</div></section><section class="slide answer" data-pos="6-6-17">
+<span class="pos">6-6-17</span>
+<div class="slidecontent">
+<p>You can&#39;t, but <code>enterGuess</code> can! We simply add a new, non-pure <code>render</code> function and move the DOM updating to that:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span>(<span class="hljs-params">currentState, ui</span>)</span>{
+  <span class="hljs-comment">// code which updates the ui elements according to the current state</span>
+}
+</code></pre>
+</div></section><section class="slide" data-pos="6-6-18">
+<span class="pos">6-6-18</span>
+<div class="slidecontent"><p>You&#39;ll likely also benefit from having a (pure!) function for <strong>creating a new state</strong>:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">newState</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-comment">// code which returns a fresh app state object</span>
+}
+</code></pre>
+<p>(this would replace what many of you called resetGame)</p>
+</div></section><section class="slide" data-pos="6-6-19">
+<span class="pos">6-6-19</span>
+<div class="slidecontent"><p>Side note: for a function to be <strong>pure</strong> in the <strong>academic sense</strong>, randomness isn&#39;t allowed. But, we&#39;re not at university, so let&#39;s cheat. :)</p>
+</div></section><section class="slide" data-pos="6-6-20">
+<span class="pos">6-6-20</span>
+<div class="slidecontent"><p>The above should put you on the correct track, but again, you&#39;re free to refactor according to your own head too.</p>
+<p>Here&#39;s what we&#39;re striving for:</p>
+<ul>
+<li>we want to put <strong>as much logic as possible</strong> into <strong>pure functions</strong>...</li>
+<li>...meaning functions that<ul>
+<li><strong>don&#39;t reference outside variables</strong></li>
+<li>have <strong>no side effects</strong></li>
+</ul>
+</li>
+</ul>
+</div></section><section class="slide" data-pos="6-6-21">
+<span class="pos">6-6-21</span>
+<div class="slidecontent"><div class="checklist"></div>
+
+<p>You are done when...</p>
+<ul>
+<li>More code is pure than before!</li>
+<li>You&#39;re beginning to understand the benefits</li>
+</ul>
+</div></section><section class="slide" data-pos="6-6-22">
+<span class="pos">6-6-22</span>
+<div class="slidecontent"><p>No panic if you fail to get it working again - we&#39;ll walk through a solution together afterwards!</p>
+</div></section>
+</section>
+<!--ENDSECTION6--><!--ENDCHAPTERCONTENT-->
+        
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var basehref = window.location.href.replace(/chapter\d.*?$/,'')
+
+      document.addEventListener("keydown",function(e){
+        var code = e.which || e.keyCode;
+        if (code===13){
+          window.location.href = basehref+"index.html?from="+(6-1);
+        } else if (code >= 49 && code <= 6+48) {
+          window.location.hash = "#/" + (code-48+1+0);
+        }
+        if (6 < 11) {
+          if (code===99){ // the letter C for next Chapter
+            window.location.href = basehref+"chapter"+(6+1)+".html"
+          }
+        }
+      });
+    </script>
+    <script src="mc2/scripts/head.js" type="text/javascript"></script>
+    <script src="mc2/scripts/reveal.js" type="text/javascript"></script>
+    <script src="mc2/scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    showNotes: false,
+    transition: 'slide',
+    dependencies: [
+      { src: 'mc2/scripts/plugin/notes/notes.js', async: true }
+    ]
+  })
+
+    window.onload = function(){
+
+      var links = document.querySelectorAll("a.link");
+      for(var i=0;i<links.length;i++){
+        var link = links[i];
+        link.innerHTML = link.innerHTML.replace(/ /g,'&nbsp;')
+      }
+      var posElem = document.getElementById('pos')
+      function updateReference(){
+        setTimeout(function(){
+          var currentpos = document.querySelector('section.present[data-pos]')
+          if (currentpos){
+            posElem.innerHTML = currentpos.getAttribute('data-pos')
+          } else {
+            posElem.innerHTML = ''
+          }
+          if (document.querySelector('.present.chaptertitle')){
+            document.body.classList.add('atchaptertitle');
+          } else {
+            document.body.classList.remove('atchaptertitle');
+          }
+        },10)
+      }
+
+      window.addEventListener("hashchange",updateReference);
+
+      updateReference();
+    };
+
+    </script>
+    <!--STARTCOURSESPECIFICSCRIPTS--><script type="text/javascript" src="scripts/cssdemo.js"></script>
+<script type="text/javascript" src="scripts/scoped_polyfill.js"></script><!--ENDCOURSESPECIFICSCRIPTS-->
+  </body>
+</html>
